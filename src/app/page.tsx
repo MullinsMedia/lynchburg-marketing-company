@@ -87,41 +87,47 @@ export default async function HomePage() {
       />
 
       {/* Hero */}
-      <section className="bg-gray-900 text-white py-24 px-4">
+      <section className="bg-[#2C3539] text-white py-28 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl sm:text-6xl font-extrabold leading-tight mb-6">
+          <p className="text-[#CBD4D7] text-sm uppercase tracking-widest font-sans mb-6">
+            Lynchburg, Virginia
+          </p>
+          <h1 className="text-5xl sm:text-6xl font-serif font-semibold leading-tight mb-6 text-white">
             Lynchburg Marketing Company
           </h1>
-          <p className="text-xl sm:text-2xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-[#97a8b0] mb-10 max-w-2xl mx-auto leading-relaxed font-sans font-light">
             The only marketing company in Lynchburg, VA that openly admits they built this website to rank on Google.
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-[#E63946] text-white font-bold text-lg px-8 py-4 rounded-lg hover:bg-red-700 transition-colors"
+            className="inline-block bg-[#61717A] text-white font-sans font-semibold text-sm uppercase tracking-widest px-10 py-4 hover:bg-[#4f6069] transition-colors"
           >
-            Get Your Free Consultation →
+            Get Your Free Consultation
           </Link>
         </div>
       </section>
 
       {/* Services */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-24 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-extrabold text-gray-900 text-center mb-4">
-            Marketing Services for Lynchburg Businesses
-          </h2>
-          <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-            From local SEO to paid advertising, we help businesses in Lynchburg, VA get found, get leads, and grow.
-          </p>
+          <div className="text-center mb-14">
+            <p className="text-xs text-[#61717A] uppercase tracking-widest font-sans mb-3">What We Do</p>
+            <h2 className="text-3xl sm:text-4xl font-serif font-semibold text-[#2C3539] mb-4">
+              Marketing Services for Lynchburg Businesses
+            </h2>
+            <p className="text-[#61717A] max-w-2xl mx-auto font-sans font-light leading-relaxed">
+              From local SEO to paid advertising, we help businesses in Lynchburg, VA get found, get leads, and grow.
+            </p>
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map(service => (
               <div
                 key={service.title}
-                className="bg-gray-50 border border-gray-200 rounded-xl p-6 hover:border-[#E63946] transition-colors"
+                className="bg-[#F5F6F6] border border-[#CBD4D7] p-8 hover:border-[#61717A] transition-colors"
               >
-                <div className="text-3xl mb-3">{service.icon}</div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{service.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{service.description}</p>
+                <div className="text-2xl mb-4">{service.icon}</div>
+                <h3 className="text-lg font-serif font-semibold text-[#2C3539] mb-3">{service.title}</h3>
+                <p className="text-[#61717A] text-sm leading-relaxed font-sans font-light">{service.description}</p>
               </div>
             ))}
           </div>
@@ -129,32 +135,38 @@ export default async function HomePage() {
       </section>
 
       {/* Honest disclaimer */}
-      <section className="py-16 px-4 bg-[#E63946]">
-        <div className="max-w-3xl mx-auto text-center text-white">
-          <h2 className="text-2xl font-extrabold mb-4">Let&apos;s be honest with you</h2>
-          <p className="text-lg leading-relaxed mb-6">
+      <section className="py-20 px-4 bg-[#F5F6F6] border-y border-[#CBD4D7]">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-xs text-[#61717A] uppercase tracking-widest font-sans mb-4">Full transparency</p>
+          <h2 className="text-2xl sm:text-3xl font-serif font-semibold text-[#2C3539] mb-6">
+            Let&apos;s be honest with you
+          </h2>
+          <p className="text-[#4C4C4C] leading-relaxed mb-4 font-sans font-light">
             Yes, this website exists specifically to rank on Google for &ldquo;Lynchburg Marketing Company.&rdquo; That&apos;s not a bug — it&apos;s a feature. We&apos;re a marketing agency. This is literally what we do, and we&apos;re doing it in public so you can watch how it works. Meta, right?
           </p>
-          <p className="text-lg leading-relaxed mb-8">
+          <p className="text-[#4C4C4C] leading-relaxed mb-10 font-sans font-light">
             If you want this kind of thinking applied to your Lynchburg business, you know where to find us.
           </p>
           <a
             href="https://mullinsmediaco.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-white text-[#E63946] font-bold text-lg px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors"
+            className="inline-block bg-[#2C3539] text-white font-sans font-semibold text-sm uppercase tracking-widest px-10 py-4 hover:bg-[#61717A] transition-colors"
           >
-            Visit mullinsmediaco.com →
+            Visit Mullins Media Co →
           </a>
         </div>
       </section>
 
       {/* Blog teaser */}
-      <section className="py-20 px-4 bg-gray-50">
+      <section className="py-24 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
-          <div className="flex items-center justify-between mb-10">
-            <h2 className="text-3xl font-extrabold text-gray-900">Latest from the Blog</h2>
-            <Link href="/blog" className="text-[#E63946] font-semibold hover:underline">
+          <div className="flex items-end justify-between mb-12">
+            <div>
+              <p className="text-xs text-[#61717A] uppercase tracking-widest font-sans mb-2">From the Blog</p>
+              <h2 className="text-3xl font-serif font-semibold text-[#2C3539]">Latest from Lynchburg</h2>
+            </div>
+            <Link href="/blog" className="text-sm text-[#61717A] font-sans font-medium uppercase tracking-widest hover:text-[#2C3539] transition-colors hidden sm:block">
               View all →
             </Link>
           </div>
@@ -166,29 +178,36 @@ export default async function HomePage() {
               ))}
             </div>
           ) : (
-            <div className="bg-white border border-gray-200 rounded-xl p-12 text-center">
-              <p className="text-gray-500 text-lg">
+            <div className="bg-[#F5F6F6] border border-[#CBD4D7] p-16 text-center">
+              <p className="text-[#61717A] font-sans font-light text-lg">
                 Content is coming soon. We&apos;re loading up the Lynchburg marketing blog with useful stuff.
               </p>
             </div>
           )}
+
+          <div className="mt-6 sm:hidden text-center">
+            <Link href="/blog" className="text-sm text-[#61717A] font-sans font-medium uppercase tracking-widest hover:text-[#2C3539] transition-colors">
+              View all posts →
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-20 px-4 bg-gray-900 text-white">
+      <section className="py-24 px-4 bg-[#2C3539] text-white">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-extrabold mb-4">
+          <p className="text-xs text-[#CBD4D7] uppercase tracking-widest font-sans mb-4">Ready to grow?</p>
+          <h2 className="text-3xl sm:text-4xl font-serif font-semibold mb-6">
             Ready to dominate your local market?
           </h2>
-          <p className="text-gray-300 text-lg mb-8">
-            We&apos;re a real digital marketing agency in Lynchburg, VA. We can help your business rank on Google, generate leads, and grow. Let&apos;s talk.
+          <p className="text-[#97a8b0] text-lg mb-10 font-sans font-light leading-relaxed">
+            We&apos;re a real digital marketing agency in Lynchburg, VA. We can help your business rank on Google, generate leads, and grow.
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-[#E63946] text-white font-bold text-lg px-8 py-4 rounded-lg hover:bg-red-700 transition-colors"
+            className="inline-block bg-[#61717A] text-white font-sans font-semibold text-sm uppercase tracking-widest px-10 py-4 hover:bg-[#4f6069] transition-colors"
           >
-            Get Your Free Consultation →
+            Get Your Free Consultation
           </Link>
         </div>
       </section>

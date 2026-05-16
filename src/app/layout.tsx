@@ -1,12 +1,20 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Playfair_Display, Poppins } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
-const inter = Inter({
+const playfair = Playfair_Display({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-playfair',
+  display: 'swap',
+})
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-poppins',
+  display: 'swap',
 })
 
 export const metadata: Metadata = {
@@ -31,7 +39,7 @@ export default function RootLayout({
   const ga4Id = process.env.NEXT_PUBLIC_GA4_ID
 
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`}>
+    <html lang="en" className={`${playfair.variable} ${poppins.variable} h-full antialiased`}>
       <head>
         {ga4Id && (
           <>
@@ -52,7 +60,7 @@ export default function RootLayout({
           </>
         )}
       </head>
-      <body className="min-h-full flex flex-col bg-white text-gray-900 font-sans">
+      <body className="min-h-full flex flex-col bg-[#F5F6F6] text-[#4C4C4C] font-sans">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getPublishedPosts, getPostBySlug } from '@/lib/blog'
 
@@ -73,27 +74,28 @@ export default async function BlogPostPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <article className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
+      <article className="max-w-3xl mx-auto px-4 sm:px-6 py-20">
         {/* Post header */}
-        <header className="mb-8">
+        <header className="mb-10">
           {post.category && (
-            <span className="inline-block text-xs font-semibold uppercase tracking-wide text-[#E63946] mb-3">
+            <span className="inline-block text-xs font-sans font-semibold uppercase tracking-widest text-[#61717A] mb-4">
               {post.category}
             </span>
           )}
-          <h1 className="text-4xl font-extrabold text-gray-900 leading-tight mb-4">
+          <h1 className="text-4xl sm:text-5xl font-serif font-semibold text-[#2C3539] leading-tight mb-6">
             {post.title}
           </h1>
-          <div className="flex items-center gap-4 text-sm text-gray-500">
+          <div className="flex items-center gap-3 text-xs font-sans text-[#97a8b0] uppercase tracking-wide">
             {post.publishedDate && <span>{formatDate(post.publishedDate)}</span>}
             <span>·</span>
             <span>Adam Mullins | Mullins Media Co.</span>
           </div>
+          <div className="mt-6 border-b border-[#CBD4D7]" />
         </header>
 
         {/* Featured image */}
         {post.featuredImageUrl && (
-          <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-8">
+          <div className="relative w-full aspect-video overflow-hidden mb-10">
             <Image
               src={post.featuredImageUrl}
               alt={post.title}
@@ -107,25 +109,24 @@ export default async function BlogPostPage({ params }: Props) {
 
         {/* Content */}
         <div
-          className="prose max-w-none"
+          className="prose max-w-none text-[#4C4C4C]"
           dangerouslySetInnerHTML={{ __html: post.contentHtml }}
         />
 
         {/* Bottom CTA */}
-        <div className="mt-16 bg-gray-900 text-white rounded-xl p-8 text-center">
-          <h2 className="text-2xl font-extrabold mb-3">Need marketing help in Lynchburg?</h2>
-          <p className="text-gray-300 mb-6">
+        <div className="mt-20 bg-[#2C3539] text-white p-10 text-center">
+          <p className="text-xs text-[#CBD4D7] uppercase tracking-widest font-sans mb-4">Work with us</p>
+          <h2 className="text-2xl font-serif font-semibold mb-4">Need marketing help in Lynchburg?</h2>
+          <p className="text-[#97a8b0] mb-8 font-sans font-light leading-relaxed">
             Mullins Media Co. is a real digital marketing agency serving Lynchburg, VA and beyond.
             Let&apos;s talk about what we can do for your business.
           </p>
-          <a
-            href="https://mullinsmediaco.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-[#E63946] text-white font-bold px-8 py-3 rounded-lg hover:bg-red-700 transition-colors"
+          <Link
+            href="/contact"
+            className="inline-block bg-[#61717A] text-white font-sans font-semibold text-sm uppercase tracking-widest px-10 py-4 hover:bg-[#4f6069] transition-colors"
           >
-            Visit Mullins Media Co →
-          </a>
+            Get Your Free Consultation
+          </Link>
         </div>
       </article>
     </>
