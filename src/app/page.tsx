@@ -95,14 +95,12 @@ export default async function HomePage() {
           <p className="text-xl sm:text-2xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
             The only marketing company in Lynchburg, VA that openly admits they built this website to rank on Google.
           </p>
-          <a
-            href="https://mullinsmediaco.com"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/contact"
             className="inline-block bg-[#E63946] text-white font-bold text-lg px-8 py-4 rounded-lg hover:bg-red-700 transition-colors"
           >
-            Work With Us at Mullins Media Co →
-          </a>
+            Get Your Free Consultation →
+          </Link>
         </div>
       </section>
 
@@ -186,14 +184,12 @@ export default async function HomePage() {
           <p className="text-gray-300 text-lg mb-8">
             We&apos;re a real digital marketing agency in Lynchburg, VA. We can help your business rank on Google, generate leads, and grow. Let&apos;s talk.
           </p>
-          <a
-            href="https://mullinsmediaco.com"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/contact"
             className="inline-block bg-[#E63946] text-white font-bold text-lg px-8 py-4 rounded-lg hover:bg-red-700 transition-colors"
           >
-            Let&apos;s Talk at Mullins Media Co →
-          </a>
+            Get Your Free Consultation →
+          </Link>
         </div>
       </section>
     </>

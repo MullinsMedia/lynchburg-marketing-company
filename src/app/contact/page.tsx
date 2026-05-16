@@ -1,27 +1,47 @@
 import type { Metadata } from 'next'
-import ContactForm from '@/components/ContactForm'
+import Script from 'next/script'
 
 export const metadata: Metadata = {
-  title: 'Contact | Lynchburg Marketing Company',
+  title: 'Free Marketing Consultation | Lynchburg Marketing Company',
   description:
-    'Get in touch with Lynchburg Marketing Company. We serve businesses throughout Lynchburg, VA.',
+    'Get a free marketing consultation with Lynchburg Marketing Company. We help businesses in Lynchburg, VA get found on Google and grow.',
 }
 
 export default function ContactPage() {
   return (
-    <div className="max-w-2xl mx-auto px-4 sm:px-6 py-16">
+    <div className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
       <h1 className="text-4xl font-extrabold text-gray-900 mb-4">
-        Contact Lynchburg Marketing Company
+        Get Your Free Consultation
       </h1>
       <p className="text-gray-600 text-lg mb-10">
-        Want to talk marketing? We&apos;d love to hear from you. Fill out the form below and we&apos;ll be
-        in touch.
+        Ready to grow your business in Lynchburg? Fill out the form below and we&apos;ll reach out to
+        schedule your free marketing consultation — no pressure, no obligation.
       </p>
 
-      <ContactForm />
+      <div className="rounded-lg overflow-hidden" style={{ height: '492px' }}>
+        <iframe
+          src="https://api.leadconnectorhq.com/widget/form/lEGmlsfBKzqHmjEqdS4Q"
+          style={{ width: '100%', height: '100%', border: 'none', borderRadius: '3px' }}
+          id="inline-lEGmlsfBKzqHmjEqdS4Q"
+          data-layout="{&apos;id&apos;:&apos;INLINE&apos;}"
+          data-trigger-type="alwaysShow"
+          data-trigger-value=""
+          data-activation-type="alwaysActivated"
+          data-activation-value=""
+          data-deactivation-type="neverDeactivate"
+          data-deactivation-value=""
+          data-form-name="Lynchburg Marketing Company"
+          data-height="492"
+          data-layout-iframe-id="inline-lEGmlsfBKzqHmjEqdS4Q"
+          data-form-id="lEGmlsfBKzqHmjEqdS4Q"
+          title="Lynchburg Marketing Company"
+        />
+      </div>
+
+      <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="lazyOnload" />
 
       <p className="mt-8 text-center text-gray-500">
-        Or visit us at{' '}
+        Or visit us directly at{' '}
         <a
           href="https://mullinsmediaco.com"
           target="_blank"
