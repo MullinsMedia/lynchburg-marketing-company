@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'About | Who Is Lynchburg Marketing Company?',
@@ -8,12 +9,14 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
-      <h1 className="text-4xl font-extrabold text-gray-900 mb-6">
+    <div className="max-w-3xl mx-auto px-4 sm:px-6 py-20">
+      <p className="text-xs text-[#61717A] uppercase tracking-widest font-sans mb-4">About</p>
+      <h1 className="text-4xl sm:text-5xl font-serif font-semibold text-[#2C3539] mb-6 leading-tight">
         About Lynchburg Marketing Company
       </h1>
+      <div className="border-b border-[#CBD4D7] mb-10" />
 
-      <div className="prose max-w-none">
+      <div className="prose max-w-none text-[#4C4C4C]">
         <p>
           Let&apos;s cut to the chase: <strong>Lynchburg Marketing Company</strong> is a website built
           by{' '}
@@ -67,20 +70,19 @@ export default function AboutPage() {
         </p>
       </div>
 
-      <div className="mt-12 bg-[#E63946] text-white rounded-xl p-8 text-center">
-        <h2 className="text-2xl font-extrabold mb-3">We do this for clients too</h2>
-        <p className="text-lg mb-6 text-red-100">
+      <div className="mt-16 bg-[#2C3539] text-white p-10 text-center">
+        <p className="text-xs text-[#CBD4D7] uppercase tracking-widest font-sans mb-4">Work with us</p>
+        <h2 className="text-2xl font-serif font-semibold mb-4">We do this for clients too</h2>
+        <p className="text-[#97a8b0] mb-8 font-sans font-light leading-relaxed">
           Less publicly. More focused on your specific Lynchburg market.
           Visit Mullins Media Co. to learn more.
         </p>
-        <a
-          href="https://mullinsmediaco.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block bg-white text-[#E63946] font-bold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors"
+        <Link
+          href="/contact"
+          className="inline-block bg-[#61717A] text-white font-sans font-semibold text-sm uppercase tracking-widest px-10 py-4 hover:bg-[#4f6069] transition-colors"
         >
-          Visit mullinsmediaco.com →
-        </a>
+          Get Your Free Consultation
+        </Link>
       </div>
     </div>
   )

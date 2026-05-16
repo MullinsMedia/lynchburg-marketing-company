@@ -23,10 +23,13 @@ export default async function BlogPage({
   const posts = allPosts.slice(start, start + POSTS_PER_PAGE)
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <div className="mb-12">
-        <h1 className="text-4xl font-extrabold text-gray-900 mb-4">Lynchburg Marketing Blog</h1>
-        <p className="text-gray-600 text-lg max-w-2xl">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="mb-14">
+        <p className="text-xs text-[#61717A] uppercase tracking-widest font-sans mb-3">Lynchburg Marketing Blog</p>
+        <h1 className="text-4xl sm:text-5xl font-serif font-semibold text-[#2C3539] mb-4">
+          Marketing Insights
+        </h1>
+        <p className="text-[#61717A] text-lg max-w-2xl font-sans font-light leading-relaxed">
           SEO-focused content about marketing, advertising, and growing businesses in Lynchburg, VA.
           Written by the team at Mullins Media Co.
         </p>
@@ -34,29 +37,29 @@ export default async function BlogPage({
 
       {posts.length > 0 ? (
         <>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-14">
             {posts.map(post => (
               <BlogCard key={post.slug} post={post} />
             ))}
           </div>
 
           {totalPages > 1 && (
-            <div className="flex justify-center gap-4">
+            <div className="flex justify-center items-center gap-4">
               {page > 1 && (
                 <a
                   href={`/blog?page=${page - 1}`}
-                  className="px-5 py-2 border border-gray-300 rounded-lg text-gray-700 hover:border-[#E63946] hover:text-[#E63946] transition-colors font-medium"
+                  className="px-6 py-2 border border-[#CBD4D7] text-[#4C4C4C] text-sm font-sans font-medium uppercase tracking-widest hover:border-[#61717A] hover:text-[#61717A] transition-colors"
                 >
                   ← Previous
                 </a>
               )}
-              <span className="px-5 py-2 text-gray-500 font-medium">
+              <span className="px-4 py-2 text-[#61717A] text-sm font-sans">
                 Page {page} of {totalPages}
               </span>
               {page < totalPages && (
                 <a
                   href={`/blog?page=${page + 1}`}
-                  className="px-5 py-2 border border-gray-300 rounded-lg text-gray-700 hover:border-[#E63946] hover:text-[#E63946] transition-colors font-medium"
+                  className="px-6 py-2 border border-[#CBD4D7] text-[#4C4C4C] text-sm font-sans font-medium uppercase tracking-widest hover:border-[#61717A] hover:text-[#61717A] transition-colors"
                 >
                   Next →
                 </a>
@@ -65,9 +68,9 @@ export default async function BlogPage({
           )}
         </>
       ) : (
-        <div className="bg-gray-50 border border-gray-200 rounded-xl p-16 text-center">
-          <h2 className="text-xl font-bold text-gray-700 mb-3">Content coming soon</h2>
-          <p className="text-gray-500">
+        <div className="bg-white border border-[#CBD4D7] p-16 text-center">
+          <h2 className="font-serif text-xl font-semibold text-[#2C3539] mb-3">Content coming soon</h2>
+          <p className="text-[#61717A] font-sans font-light">
             We&apos;re building out our Lynchburg marketing blog. Check back soon for SEO tips,
             advertising insights, and local marketing strategies.
           </p>

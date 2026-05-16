@@ -7,33 +7,39 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+    <header className="sticky top-0 z-50 bg-white border-b border-[#CBD4D7]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Wordmark */}
-          <Link href="/" className="text-[#E63946] font-bold text-lg sm:text-xl leading-tight hover:opacity-80 transition-opacity">
+          <Link
+            href="/"
+            className="font-serif text-[#2C3539] font-semibold text-base sm:text-lg leading-tight hover:text-[#61717A] transition-colors tracking-wide"
+          >
             Lynchburg Marketing Company
           </Link>
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-8">
-            <Link href="/" className="text-gray-700 hover:text-[#E63946] font-medium transition-colors">
+            <Link href="/" className="text-sm text-[#4C4C4C] hover:text-[#61717A] font-medium tracking-wide transition-colors uppercase">
               Home
             </Link>
-            <Link href="/blog" className="text-gray-700 hover:text-[#E63946] font-medium transition-colors">
+            <Link href="/blog" className="text-sm text-[#4C4C4C] hover:text-[#61717A] font-medium tracking-wide transition-colors uppercase">
               Blog
             </Link>
-            <Link href="/about" className="text-gray-700 hover:text-[#E63946] font-medium transition-colors">
+            <Link href="/about" className="text-sm text-[#4C4C4C] hover:text-[#61717A] font-medium tracking-wide transition-colors uppercase">
               About
             </Link>
-            <Link href="/contact" className="text-gray-700 hover:text-[#E63946] font-medium transition-colors">
+            <Link
+              href="/contact"
+              className="text-sm font-semibold uppercase tracking-widest bg-[#61717A] text-white px-5 py-2 hover:bg-[#4f6069] transition-colors"
+            >
               Contact
             </Link>
           </nav>
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden p-2 rounded-md text-gray-700 hover:text-[#E63946] hover:bg-gray-100 transition-colors"
+            className="md:hidden p-2 text-[#4C4C4C] hover:text-[#61717A] transition-colors"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
           >
@@ -51,18 +57,18 @@ export default function Header() {
 
         {/* Mobile nav */}
         {menuOpen && (
-          <div className="md:hidden border-t border-gray-200 py-4">
+          <div className="md:hidden border-t border-[#CBD4D7] py-4">
             <nav className="flex flex-col gap-4">
-              <Link href="/" className="text-gray-700 hover:text-[#E63946] font-medium transition-colors" onClick={() => setMenuOpen(false)}>
+              <Link href="/" className="text-sm text-[#4C4C4C] hover:text-[#61717A] font-medium uppercase tracking-wide transition-colors" onClick={() => setMenuOpen(false)}>
                 Home
               </Link>
-              <Link href="/blog" className="text-gray-700 hover:text-[#E63946] font-medium transition-colors" onClick={() => setMenuOpen(false)}>
+              <Link href="/blog" className="text-sm text-[#4C4C4C] hover:text-[#61717A] font-medium uppercase tracking-wide transition-colors" onClick={() => setMenuOpen(false)}>
                 Blog
               </Link>
-              <Link href="/about" className="text-gray-700 hover:text-[#E63946] font-medium transition-colors" onClick={() => setMenuOpen(false)}>
+              <Link href="/about" className="text-sm text-[#4C4C4C] hover:text-[#61717A] font-medium uppercase tracking-wide transition-colors" onClick={() => setMenuOpen(false)}>
                 About
               </Link>
-              <Link href="/contact" className="text-gray-700 hover:text-[#E63946] font-medium transition-colors" onClick={() => setMenuOpen(false)}>
+              <Link href="/contact" className="text-sm font-semibold uppercase tracking-widest bg-[#61717A] text-white px-5 py-2 text-center hover:bg-[#4f6069] transition-colors" onClick={() => setMenuOpen(false)}>
                 Contact
               </Link>
             </nav>

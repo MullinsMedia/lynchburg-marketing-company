@@ -24,7 +24,7 @@ export default function BlogCard({ post }: { post: PublishedPost }) {
   const excerpt = stripMarkdown(post.content).slice(0, 150) + (post.content.length > 150 ? '…' : '')
 
   return (
-    <article className="bg-white rounded-xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+    <article className="bg-white border border-[#CBD4D7] overflow-hidden hover:border-[#61717A] transition-colors flex flex-col">
       {post.featuredImageUrl && (
         <div className="relative w-full aspect-video">
           <Image
@@ -38,22 +38,22 @@ export default function BlogCard({ post }: { post: PublishedPost }) {
       )}
       <div className="p-6 flex flex-col flex-1">
         {post.category && (
-          <span className="inline-block text-xs font-semibold uppercase tracking-wide text-[#E63946] mb-2">
+          <span className="inline-block text-xs font-sans font-semibold uppercase tracking-widest text-[#61717A] mb-3">
             {post.category}
           </span>
         )}
-        <h2 className="text-lg font-bold text-gray-900 mb-2 leading-snug">
-          <Link href={`/blog/${post.slug}`} className="hover:text-[#E63946] transition-colors">
+        <h2 className="font-serif text-lg font-semibold text-[#2C3539] mb-2 leading-snug">
+          <Link href={`/blog/${post.slug}`} className="hover:text-[#61717A] transition-colors">
             {post.title}
           </Link>
         </h2>
         {post.publishedDate && (
-          <p className="text-sm text-gray-400 mb-3">{formatDate(post.publishedDate)}</p>
+          <p className="text-xs font-sans text-[#97a8b0] mb-3 uppercase tracking-wide">{formatDate(post.publishedDate)}</p>
         )}
-        <p className="text-gray-600 text-sm leading-relaxed flex-1">{excerpt}</p>
+        <p className="text-[#61717A] text-sm leading-relaxed flex-1 font-sans font-light">{excerpt}</p>
         <Link
           href={`/blog/${post.slug}`}
-          className="mt-4 text-sm font-semibold text-[#E63946] hover:underline"
+          className="mt-5 text-xs font-sans font-semibold uppercase tracking-widest text-[#2C3539] hover:text-[#61717A] transition-colors"
         >
           Read more →
         </Link>
