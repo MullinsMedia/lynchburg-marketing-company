@@ -75,6 +75,7 @@ export type AdminPost = {
   publishedDate: string
   category: string
   targetKeyword: string
+  featuredImageUrl: string
 }
 
 export async function getAdminPosts(): Promise<AdminPost[]> {
@@ -101,6 +102,7 @@ export async function getAdminPosts(): Promise<AdminPost[]> {
         title: row[0] || '',
         slug: row[1] || '',
         targetKeyword: row[2] || '',
+        featuredImageUrl: row[4] || '',
         status: (row[6] || 'draft') as AdminPost['status'],
         scheduledDate: row[7] || '',
         publishedDate: row[8] || '',
@@ -123,6 +125,20 @@ export async function updateScheduledDate(rowIndex: number, newDate: string): Pr
     range: `Sheet1!H${sheetRow}`,
     valueInputOption: 'RAW',
     requestBody: { values: [[newDate]] },
+  })
+}
+
+export async function updateFeaturedImage(rowIndex: number, imageUrl: string): Promise<void> {
+  const auth = getAuth()
+  const sheets = google.sheets({ version: 'v4', auth })
+  const sheetId = process.env.GOOGLE_SHEET_ID!
+  const sheetRow = rowIndex + 2
+
+  await sheets.spreadsheets.values.update({
+    spreadsheetId: sheetId,
+    range: `Sheet1!E${sheetRow}`, // column E = featuredImageUrl
+    valueInputOption: 'RAW',
+    requestBody: { values: [[imageUrl]] },
   })
 }
 
