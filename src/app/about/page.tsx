@@ -140,14 +140,16 @@ export default function AboutPage() {
       <div className="mb-20">
         <p className="text-xs text-[#61717A] uppercase tracking-widest font-sans mb-4">How We Work</p>
         <h2 className="font-serif text-3xl font-semibold text-[#2C3539] mb-8">
-          Simple philosophy, real results
+          Not cookie-cutter. Not a vendor. A real partner.
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {[
-            { heading: 'We show up', body: 'Deadlines are not suggestions. We deliver on time, every time — because your business depends on it.' },
-            { heading: 'We answer the phone', body: 'You will not get a ticketing system or a bot. You will get a real person on our team who knows your account.' },
-            { heading: 'We customize everything', body: 'No cookie-cutter packages. Every ad campaign, website, content strategy, and brand plan is built specifically for your business.' },
-            { heading: 'We walk alongside you', body: 'We are not a vendor. We are a growth partner — invested in your success because your success is how we measure ours.' },
+            { heading: 'We get to know your business first', body: 'Before we recommend anything, we learn how you make money — your margins, your best customers, your seasonality. The strategy follows. We do not sell packages before we understand problems.' },
+            { heading: 'We give honest recommendations', body: 'Local SEO is not always the right answer. Sometimes Google Ads will grow your business faster. Sometimes your bottleneck is operations, not leads. We will tell you what we actually think, even if it means recommending less work for us.' },
+            { heading: 'We measure success by profitability', body: 'Traffic is vanity. Revenue is not. We track what matters — leads, conversions, revenue per channel — and we adjust strategy based on what is actually working for your bottom line.' },
+            { heading: 'We show up', body: 'Deadlines are not suggestions. You will not get a ticketing system or a bot. You will get a real person on our team who knows your account and answers the phone.' },
+            { heading: 'We build long-term relationships', body: 'We are not a vendor you hire for a project and forget. Our best client relationships span years. We know your business, your team, your goals — and we grow with you.' },
+            { heading: 'We customize everything', body: 'No cookie-cutter packages. Every ad campaign, website, content strategy, and brand plan is built specifically for your business. One size does not fit all — and we never pretend it does.' },
           ].map(item => (
             <div key={item.heading} className="border-l-4 border-[#61717A] pl-6 py-2">
               <p className="font-serif font-semibold text-[#2C3539] mb-2">{item.heading}</p>
@@ -208,23 +210,29 @@ export default function AboutPage() {
       <div className="prose max-w-none text-[#4C4C4C] mb-20">
         <h2>Why does LynchburgMarketingCompany.com exist?</h2>
         <p>
-          This website is a live SEO experiment. We built it specifically to rank on Google for search terms
-          like &ldquo;Lynchburg marketing company,&rdquo; &ldquo;Lynchburg advertising company,&rdquo;
-          &ldquo;marketing agency Lynchburg VA,&rdquo; and &ldquo;Lynchburg SEO.&rdquo; The site runs on a
-          content pipeline that publishes keyword-targeted blog posts on a regular schedule. Every piece of
-          copy is written to rank for something specific.
+          This website is a live SEO experiment — built over a weekend, almost entirely with AI, specifically
+          to rank on Google for search terms like &ldquo;Lynchburg marketing company,&rdquo;
+          &ldquo;Lynchburg advertising company,&rdquo; and &ldquo;marketing agency Lynchburg VA.&rdquo;
+          We used zero paid ads. We used zero black-hat SEO tricks. Just good structure, real content,
+          and a strategy built around how Google actually works.
         </p>
         <p>
-          We tell you this openly because transparency is one of our values — and because it makes for a
-          better story. If you found this site through a Google search, the strategy worked. If you are a
-          Lynchburg business owner who wants this kind of thinking applied to your own brand, that is
-          exactly what we do for clients.
+          We tell you this openly because transparency is one of our values — and because it makes the
+          point better than any pitch could. If you found this site through a Google search, the strategy
+          worked. That is not a coincidence. That is a demonstration.
+        </p>
+        <p>
+          The site runs on a content pipeline that publishes keyword-targeted blog posts on a regular
+          schedule. Yes, some of the blog images are off-topic. Yes, the posts are very long. We know.
+          Those are features, not bugs — Google rewards depth and freshness, and we optimized for ranking,
+          not perfection. The full story is on{' '}
+          <a href="/the-experiment" className="text-[#61717A] hover:text-[#2C3539] transition-colors">The Experiment page</a>.
         </p>
         <p>
           Mullins Media Co. is a real company. The team you see above is the real team. The results we
           describe — growing client revenue 85% in months, scaling a business from 3 to 50+ employees,
-          quadrupling website traffic — are real outcomes. We would love to talk about what that could
-          look like for your Lynchburg business.
+          quadrupling website traffic — are real outcomes from real clients. We would love to talk about
+          what that could look like for your Lynchburg business.
         </p>
       </div>
 
