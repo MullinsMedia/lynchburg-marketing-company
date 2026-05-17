@@ -23,6 +23,8 @@ export const metadata: Metadata = {
   },
 }
 
+const phone = process.env.NEXT_PUBLIC_PHONE
+
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
@@ -30,11 +32,12 @@ const jsonLd = {
   description:
     'SEO, digital marketing, and advertising agency serving Lynchburg, Virginia',
   url: 'https://lynchburgmarketingcompany.com',
-  telephone: '',
+  ...(phone ? { telephone: phone } : {}),
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Lynchburg',
     addressRegion: 'VA',
+    postalCode: '24501',
     addressCountry: 'US',
   },
   areaServed: {
