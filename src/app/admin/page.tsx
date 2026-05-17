@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
+import Image from 'next/image'
 
 const SHEET_URL = `https://docs.google.com/spreadsheets/d/${process.env.NEXT_PUBLIC_SHEET_ID || '1dQVtFeDsz0r-ZO0xTSAO5UOZqriWdzTpdcxQeFUHiJA'}/edit`
 
@@ -12,12 +13,21 @@ type AdminPost = {
   scheduledDate: string
   category: string
   targetKeyword: string
+  featuredImageUrl: string
 }
 
 type Stats = {
   ready: number
   published: number
   draft: number
+}
+
+type UnsplashPhoto = {
+  id: string
+  url: string
+  thumb: string
+  alt: string
+  credit: string
 }
 
 function formatDate(dateStr: string) {
@@ -79,6 +89,144 @@ function PasswordGate({ onAuth }: { onAuth: (pw: string) => void }) {
   )
 }
 
+// ─── Image Picker Panel ───────────────────────────────────────────
+function ImagePicker({
+  post,
+  password,
+  onClose,
+  onSaved,
+}: {
+  post: AdminPost
+  password: string
+  onClose: () => void
+  onSaved: (rowIndex: number, url: string) => void
+}) {
+  const [query, setQuery] = useState(post.category || post.targetKeyword || post.title)
+  const [photos, setPhotos] = useState<UnsplashPhoto[]>([])
+  const [searching, setSearching] = useState(false)
+  const [saving, setSaving] = useState<string | null>(null)
+  const [error, setError] = useState('')
+
+  const search = useCallback(async () => {
+    if (!query.trim()) return
+    setSearching(true)
+    setError('')
+    const res = await fetch(`/api/admin/image-search?query=${encodeURIComponent(query)}`, {
+      headers: { Authorization: `Bearer ${password}` },
+    })
+    if (res.ok) {
+      const data = await res.json()
+      setPhotos(data.photos || [])
+    } else {
+      setError('Search failed.')
+    }
+    setSearching(false)
+  }, [query, password])
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps, react-hooks/set-state-in-effect
+  useEffect(() => { search() }, [])
+
+  async function pickPhoto(photo: UnsplashPhoto) {
+    setSaving(photo.id)
+    const res = await fetch('/api/admin/image', {
+      method: 'PATCH',
+      headers: { Authorization: `Bearer ${password}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ rowIndex: post.rowIndex, imageUrl: photo.url }),
+    })
+    if (res.ok) {
+      onSaved(post.rowIndex, photo.url)
+      onClose()
+    } else {
+      setError('Failed to save.')
+    }
+    setSaving(null)
+  }
+
+  return (
+    <div className="fixed inset-0 z-50 bg-black/40 flex items-center justify-center p-4">
+      <div className="bg-white border border-[#CBD4D7] w-full max-w-3xl max-h-[90vh] flex flex-col">
+        {/* Header */}
+        <div className="px-6 py-4 border-b border-[#CBD4D7] flex items-start justify-between gap-4">
+          <div className="min-w-0">
+            <p className="text-xs text-[#61717A] uppercase tracking-widest font-sans mb-1">Change Image</p>
+            <p className="font-serif text-base font-semibold text-[#2C3539] leading-snug truncate">{post.title}</p>
+          </div>
+          <button onClick={onClose} className="text-[#97a8b0] hover:text-[#4C4C4C] text-xl font-light leading-none mt-1 shrink-0">✕</button>
+        </div>
+
+        {/* Search bar */}
+        <div className="px-6 py-4 border-b border-[#CBD4D7] flex gap-3">
+          <input
+            type="text"
+            value={query}
+            onChange={e => setQuery(e.target.value)}
+            onKeyDown={e => e.key === 'Enter' && search()}
+            placeholder="Search Unsplash…"
+            className="flex-1 border border-[#CBD4D7] px-3 py-2 text-sm font-sans text-[#4C4C4C] focus:outline-none focus:border-[#61717A] bg-[#F5F6F6]"
+          />
+          <button
+            onClick={search}
+            disabled={searching || !query.trim()}
+            className="bg-[#2C3539] text-white font-sans font-semibold text-xs uppercase tracking-widest px-5 py-2 hover:bg-[#61717A] transition-colors disabled:opacity-40"
+          >
+            {searching ? '…' : 'Search'}
+          </button>
+        </div>
+
+        {/* Current image */}
+        {post.featuredImageUrl && (
+          <div className="px-6 pt-4 pb-0">
+            <p className="text-xs text-[#61717A] uppercase tracking-widest font-sans mb-2">Current image</p>
+            <div className="relative h-24 w-48 bg-[#F5F6F6] border border-[#CBD4D7] overflow-hidden">
+              <Image src={post.featuredImageUrl} alt="current" fill className="object-cover" unoptimized />
+            </div>
+          </div>
+        )}
+
+        {/* Photo grid */}
+        <div className="flex-1 overflow-y-auto px-6 py-4">
+          {error && <p className="text-red-500 text-sm font-sans mb-3">{error}</p>}
+          {searching && (
+            <p className="text-[#61717A] font-sans text-sm uppercase tracking-widest">Searching…</p>
+          )}
+          {!searching && photos.length === 0 && (
+            <p className="text-[#97a8b0] font-sans text-sm">No results. Try a different search.</p>
+          )}
+          {!searching && photos.length > 0 && (
+            <div className="grid grid-cols-3 gap-3">
+              {photos.map(photo => (
+                <button
+                  key={photo.id}
+                  onClick={() => pickPhoto(photo)}
+                  disabled={saving !== null}
+                  className="relative group aspect-video bg-[#F5F6F6] border border-[#CBD4D7] overflow-hidden hover:border-[#61717A] transition-colors disabled:opacity-50"
+                >
+                  <Image
+                    src={photo.thumb}
+                    alt={photo.alt}
+                    fill
+                    className="object-cover"
+                    unoptimized
+                  />
+                  {saving === photo.id && (
+                    <div className="absolute inset-0 bg-white/70 flex items-center justify-center">
+                      <span className="text-xs font-sans text-[#61717A] uppercase tracking-widest">Saving…</span>
+                    </div>
+                  )}
+                  <div className="absolute inset-0 bg-[#2C3539]/0 group-hover:bg-[#2C3539]/20 transition-colors" />
+                  <div className="absolute bottom-0 left-0 right-0 px-2 py-1 bg-[#2C3539]/60 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <p className="text-white text-[10px] font-sans truncate">📷 {photo.credit}</p>
+                  </div>
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}
+
 // ─── Main Dashboard ───────────────────────────────────────────────
 function Dashboard({ password }: { password: string }) {
   const [stats, setStats] = useState<Stats | null>(null)
@@ -90,6 +238,7 @@ function Dashboard({ password }: { password: string }) {
   const [editingRow, setEditingRow] = useState<number | null>(null)
   const [editDate, setEditDate] = useState('')
   const [savingDate, setSavingDate] = useState(false)
+  const [imagePickerPost, setImagePickerPost] = useState<AdminPost | null>(null)
 
   const headers = { Authorization: `Bearer ${password}` }
 
@@ -105,6 +254,7 @@ function Dashboard({ password }: { password: string }) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [password])
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => { load() }, [load])
 
   async function handlePublish() {
@@ -142,6 +292,10 @@ function Dashboard({ password }: { password: string }) {
     load()
   }
 
+  function handleImageSaved(rowIndex: number, url: string) {
+    setReady(prev => prev.map(p => p.rowIndex === rowIndex ? { ...p, featuredImageUrl: url } : p))
+  }
+
   if (loading) {
     return (
       <div className="min-h-screen bg-[#F5F6F6] flex items-center justify-center">
@@ -152,6 +306,16 @@ function Dashboard({ password }: { password: string }) {
 
   return (
     <div className="min-h-screen bg-[#F5F6F6]">
+      {/* Image picker modal */}
+      {imagePickerPost && (
+        <ImagePicker
+          post={imagePickerPost}
+          password={password}
+          onClose={() => setImagePickerPost(null)}
+          onSaved={handleImageSaved}
+        />
+      )}
+
       {/* Header */}
       <div className="bg-[#2C3539] text-white px-6 py-5 flex items-center justify-between">
         <div>
@@ -242,6 +406,7 @@ function Dashboard({ password }: { password: string }) {
                 <thead>
                   <tr className="border-b border-[#CBD4D7] bg-[#F5F6F6]">
                     <th className="text-left px-6 py-3 text-xs uppercase tracking-widest text-[#61717A] font-semibold">#</th>
+                    <th className="text-left px-4 py-3 text-xs uppercase tracking-widest text-[#61717A] font-semibold">Image</th>
                     <th className="text-left px-6 py-3 text-xs uppercase tracking-widest text-[#61717A] font-semibold">Title</th>
                     <th className="text-left px-6 py-3 text-xs uppercase tracking-widest text-[#61717A] font-semibold">Category</th>
                     <th className="text-left px-6 py-3 text-xs uppercase tracking-widest text-[#61717A] font-semibold">Scheduled Date</th>
@@ -252,6 +417,33 @@ function Dashboard({ password }: { password: string }) {
                   {ready.map((post, i) => (
                     <tr key={post.rowIndex} className="border-b border-[#F5F6F6] hover:bg-[#F5F6F6] transition-colors">
                       <td className="px-6 py-4 text-[#97a8b0]">{i + 1}</td>
+
+                      {/* Thumbnail */}
+                      <td className="px-4 py-4">
+                        <button
+                          onClick={() => setImagePickerPost(post)}
+                          className="group relative w-16 h-10 bg-[#F5F6F6] border border-[#CBD4D7] overflow-hidden hover:border-[#61717A] transition-colors shrink-0"
+                          title="Change image"
+                        >
+                          {post.featuredImageUrl ? (
+                            <Image
+                              src={post.featuredImageUrl}
+                              alt={post.title}
+                              fill
+                              className="object-cover"
+                              unoptimized
+                            />
+                          ) : (
+                            <span className="absolute inset-0 flex items-center justify-center text-[#CBD4D7] text-lg">+</span>
+                          )}
+                          <div className="absolute inset-0 bg-[#2C3539]/0 group-hover:bg-[#2C3539]/30 transition-colors flex items-center justify-center">
+                            <span className="text-white text-[10px] font-sans opacity-0 group-hover:opacity-100 uppercase tracking-wide leading-none text-center px-1">
+                              Change
+                            </span>
+                          </div>
+                        </button>
+                      </td>
+
                       <td className="px-6 py-4">
                         <p className="text-[#2C3539] font-medium leading-snug">{post.title}</p>
                         {post.targetKeyword && (
@@ -320,6 +512,7 @@ export default function AdminPage() {
 
   useEffect(() => {
     const saved = sessionStorage.getItem('admin_pw')
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (saved) setPassword(saved)
   }, [])
 
