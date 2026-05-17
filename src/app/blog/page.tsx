@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import BlogCard from '@/components/BlogCard'
 import { getPublishedPosts } from '@/lib/blog'
+import { categoryToSlug } from '@/lib/seo'
 
 const blogUrl = `${process.env.NEXT_PUBLIC_SITE_URL || 'https://lynchburgmarketingcompany.com'}/blog`
 
@@ -35,10 +37,11 @@ export default async function BlogPage({
   const totalPages = Math.max(1, Math.ceil(allPosts.length / POSTS_PER_PAGE))
   const start = (page - 1) * POSTS_PER_PAGE
   const posts = allPosts.slice(start, start + POSTS_PER_PAGE)
+  const allCategories = [...new Set(allPosts.map(p => p.category).filter(Boolean))]
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-      <div className="mb-14">
+      <div className="mb-10">
         <p className="text-xs text-[#61717A] uppercase tracking-widest font-sans mb-3">Lynchburg Marketing Blog</p>
         <h1 className="text-4xl sm:text-5xl font-serif font-semibold text-[#2C3539] mb-4">
           Marketing Insights
@@ -48,6 +51,21 @@ export default async function BlogPage({
           Written by the team at Mullins Media Co.
         </p>
       </div>
+
+      {/* Category filter */}
+      {allCategories.length > 0 && (
+        <div className="flex flex-wrap gap-2 mb-12">
+          {allCategories.map(cat => (
+            <Link
+              key={cat}
+              href={`/blog/category/${categoryToSlug(cat)}`}
+              className="text-xs font-sans font-semibold uppercase tracking-widest px-3 py-1.5 border border-[#CBD4D7] text-[#61717A] hover:border-[#61717A] hover:text-[#2C3539] transition-colors"
+            >
+              {cat}
+            </Link>
+          ))}
+        </div>
+      )}
 
       {posts.length > 0 ? (
         <>
