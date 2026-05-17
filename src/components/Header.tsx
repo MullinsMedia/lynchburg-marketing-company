@@ -2,9 +2,17 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
+import { usePathname } from 'next/navigation'
+
+const navLinks = [
+  { href: '/services', label: 'Services' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/about', label: 'About' },
+]
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const pathname = usePathname()
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-[#CBD4D7]">
@@ -20,20 +28,24 @@ export default function Header() {
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-8">
-            <Link href="/" className="text-sm text-[#4C4C4C] hover:text-[#61717A] font-medium tracking-wide transition-colors uppercase">
-              Home
-            </Link>
-            <Link href="/blog" className="text-sm text-[#4C4C4C] hover:text-[#61717A] font-medium tracking-wide transition-colors uppercase">
-              Blog
-            </Link>
-            <Link href="/about" className="text-sm text-[#4C4C4C] hover:text-[#61717A] font-medium tracking-wide transition-colors uppercase">
-              About
-            </Link>
+            {navLinks.map(link => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`text-sm font-medium tracking-wide transition-colors uppercase ${
+                  pathname === link.href || pathname.startsWith(link.href + '/')
+                    ? 'text-[#2C3539]'
+                    : 'text-[#4C4C4C] hover:text-[#61717A]'
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
             <Link
               href="/contact"
               className="text-sm font-semibold uppercase tracking-widest bg-[#61717A] text-white px-5 py-2 hover:bg-[#4f6069] transition-colors"
             >
-              Contact
+              Free Consultation
             </Link>
           </nav>
 
@@ -59,17 +71,22 @@ export default function Header() {
         {menuOpen && (
           <div className="md:hidden border-t border-[#CBD4D7] py-4">
             <nav className="flex flex-col gap-4">
-              <Link href="/" className="text-sm text-[#4C4C4C] hover:text-[#61717A] font-medium uppercase tracking-wide transition-colors" onClick={() => setMenuOpen(false)}>
-                Home
-              </Link>
-              <Link href="/blog" className="text-sm text-[#4C4C4C] hover:text-[#61717A] font-medium uppercase tracking-wide transition-colors" onClick={() => setMenuOpen(false)}>
-                Blog
-              </Link>
-              <Link href="/about" className="text-sm text-[#4C4C4C] hover:text-[#61717A] font-medium uppercase tracking-wide transition-colors" onClick={() => setMenuOpen(false)}>
-                About
-              </Link>
-              <Link href="/contact" className="text-sm font-semibold uppercase tracking-widest bg-[#61717A] text-white px-5 py-2 text-center hover:bg-[#4f6069] transition-colors" onClick={() => setMenuOpen(false)}>
-                Contact
+              {navLinks.map(link => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm text-[#4C4C4C] hover:text-[#61717A] font-medium uppercase tracking-wide transition-colors"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <Link
+                href="/contact"
+                className="text-sm font-semibold uppercase tracking-widest bg-[#61717A] text-white px-5 py-2 text-center hover:bg-[#4f6069] transition-colors"
+                onClick={() => setMenuOpen(false)}
+              >
+                Free Consultation
               </Link>
             </nav>
           </div>

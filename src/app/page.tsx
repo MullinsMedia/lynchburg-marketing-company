@@ -64,39 +64,39 @@ const jsonLd = {
 const services = [
   {
     title: 'Search Engine Optimization',
+    href: '/services/seo',
     description:
-      'We get your Lynchburg business found on Google — and keep it there. Content strategy, technical SEO, local keyword targeting, and link building that drives organic traffic month after month. SEO is $750/mo as a standalone service.',
-    keywords: ['Lynchburg SEO', 'local SEO Lynchburg VA', 'search engine optimization Lynchburg'],
+      'Get your Lynchburg business found on Google and keep it there. Keyword research, technical SEO, content strategy, local citations, and Google Business Profile optimization. Starting at $750/mo.',
   },
   {
-    title: 'Pay-Per-Click Advertising',
+    title: 'Digital & Traditional Advertising',
+    href: '/services/advertising',
     description:
-      'Google Ads and paid social campaigns that convert browsers into customers. We have quadrupled website traffic for clients in weeks and built campaigns so effective we were asked to turn them off because the client could not keep up with orders.',
-    keywords: ['Google Ads Lynchburg', 'PPC advertising Lynchburg VA', 'paid search Lynchburg'],
+      'Google Ads, social campaigns, TV (WSET), radio (WLNI), and billboards — all managed in-house. We have built campaigns so effective clients had to ask us to turn them off because they could not keep up with orders.',
   },
   {
     title: 'Social Media Management',
+    href: '/services/social-media',
     description:
-      'Strategy, content creation, scheduling, and community management across every platform your customers use. We build a social presence that actually tells your story — not just posts for the sake of posting.',
-    keywords: ['social media management Lynchburg', 'social media marketing Lynchburg VA'],
+      'Strategy, content creation, scheduling, and community management. We handle every platform your customers use and build a social presence that actually tells your brand story — not just posts for the sake of posting.',
   },
   {
     title: 'Website Design & Development',
+    href: '/services/website-design',
     description:
-      'Fast, conversion-focused websites starting at $3,000. We handle everything — branding, photos, copy, development, and launch. Built on platforms that work: WordPress, Shopify, and more. Designed to rank from day one.',
-    keywords: ['website design Lynchburg VA', 'web design Lynchburg', 'website development Lynchburg'],
+      'Fast, conversion-focused websites starting at $3,000. We handle everything — copy, design, development, and launch — on WordPress, Shopify, and more. Built to rank on Google from day one.',
   },
   {
-    title: 'TV, Radio & Billboard Advertising',
+    title: 'Content Marketing',
+    href: '/services/content-marketing',
     description:
-      'We are a media partner with WSET (local TV), WLNI (radio), and Central Virginia Home Magazine. 3-month brand awareness campaigns starting at $1,900 for print, $4,900 for radio, and $9,990 for TV — all produced in-house.',
-    keywords: ['Lynchburg advertising', 'TV advertising Lynchburg VA', 'radio advertising Lynchburg'],
+      'Blog content, email campaigns, and brand storytelling that rank and convert. Our in-house photo and video capability means we can produce the assets your content strategy needs without hiring additional vendors.',
   },
   {
-    title: 'Brand Identity & Content',
+    title: 'Brand Identity & Strategy',
+    href: '/services/advertising',
     description:
-      'Logo design, brand guidelines, photography, video, and email marketing. We have grown revenue 85% in months and scaled businesses from 3 employees to 50+ in just a few years. Content is how brands win.',
-    keywords: ['branding Lynchburg VA', 'content marketing Lynchburg', 'marketing agency Lynchburg'],
+      'Logo design, brand guidelines, messaging frameworks, and full marketing strategy. We have scaled businesses from 3 employees to 50+ and grown revenue 85% in just a few months through smart brand positioning.',
   },
 ]
 
@@ -180,7 +180,7 @@ export default async function HomePage() {
         <div className="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
           {[
             { value: '15+', label: 'Years in Lynchburg' },
-            { value: '5,000+', label: 'Projects completed' },
+            { value: '100+', label: 'Businesses served' },
             { value: '2013', label: 'Year founded' },
             { value: '9', label: 'Person team' },
           ].map(s => (
@@ -207,13 +207,14 @@ export default async function HomePage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map(service => (
-              <div
+              <Link
                 key={service.title}
-                className="bg-[#F5F6F6] border border-[#CBD4D7] p-8 hover:border-[#61717A] transition-colors"
+                href={service.href}
+                className="group bg-[#F5F6F6] border border-[#CBD4D7] p-8 hover:border-[#61717A] transition-colors block"
               >
-                <h3 className="text-lg font-serif font-semibold text-[#2C3539] mb-3">{service.title}</h3>
+                <h3 className="text-lg font-serif font-semibold text-[#2C3539] mb-3 group-hover:text-[#61717A] transition-colors">{service.title} →</h3>
                 <p className="text-[#61717A] text-sm leading-relaxed font-sans font-light">{service.description}</p>
-              </div>
+              </Link>
             ))}
           </div>
           <div className="text-center mt-10">

@@ -69,8 +69,8 @@ const team = [
 
 const stats = [
   { value: '15+', label: 'Years in Lynchburg' },
-  { value: '5,000+', label: 'Homes photographed' },
-  { value: '300+', label: 'Weddings documented' },
+  { value: '100+', label: 'Businesses served' },
+  { value: '2013', label: 'Year founded' },
   { value: '9', label: 'Person team' },
 ]
 
@@ -86,11 +86,13 @@ export default function AboutPage() {
         </h1>
         <div className="border-b border-[#CBD4D7] mb-8" />
         <p className="text-[#61717A] text-lg font-sans font-light leading-relaxed">
-          Mullins Media Co. is a full-service marketing and media agency based in Lynchburg, Virginia.
-          We have been helping businesses grow since 2013 — with a nine-person team covering SEO, paid
-          advertising, social media, website design, TV and radio, photography, video, and brand strategy.
-          Lynchburg Marketing Company is one of our brands, built specifically to demonstrate what
-          modern SEO looks like when it is done in public.
+          Mullins Media Co. is a full-service marketing and advertising agency based in Lynchburg,
+          Virginia. Since 2013 we have been helping Lynchburg businesses grow through SEO, Google Ads,
+          social media management, TV and radio advertising, website design, content marketing, and
+          brand strategy. Our in-house content production team — photographers, videographers, and
+          drone pilots — means we can create every asset a campaign needs without outside vendors.
+          Lynchburg Marketing Company is one of our brands, built to demonstrate what modern SEO
+          looks like when done in public.
         </p>
       </div>
 
@@ -190,9 +192,10 @@ export default function AboutPage() {
           We advertise on the same channels we manage for clients
         </h2>
         <p className="text-[#4C4C4C] font-sans font-light leading-relaxed mb-6">
-          Our work has appeared in magazines and on billboards throughout central Virginia. We are media
-          partners with WSET (Lynchburg&apos;s local TV station), WLNI (radio), and Central Virginia Home
-          Magazine — the same channels we use to run advertising campaigns for clients.
+          We are media partners with WSET (Lynchburg&apos;s local TV station), WLNI (radio), and Central
+          Virginia Home Magazine — the same channels we buy advertising on for clients. Our in-house
+          creative team handles everything from video production to photography, which means clients
+          never need to hire a separate content vendor to feed their marketing campaigns.
         </p>
         <div className="flex flex-wrap gap-3">
           {['WSET TV', 'WLNI Radio', 'Central Virginia Home Magazine', 'Lynchburg Billboards', 'Atelier Studio'].map(c => (
