@@ -239,6 +239,8 @@ function Dashboard({ password }: { password: string }) {
   const [editDate, setEditDate] = useState('')
   const [savingDate, setSavingDate] = useState(false)
   const [imagePickerPost, setImagePickerPost] = useState<AdminPost | null>(null)
+  const [refreshing, setRefreshing] = useState(false)
+  const [refreshMsg, setRefreshMsg] = useState('')
 
   const headers = { Authorization: `Bearer ${password}` }
 
@@ -290,6 +292,21 @@ function Dashboard({ password }: { password: string }) {
     setSavingDate(false)
     setEditingRow(null)
     load()
+  }
+
+  async function handleRefreshCache() {
+    setRefreshing(true)
+    setRefreshMsg('')
+    const res = await fetch('/api/admin/revalidate', {
+      method: 'POST',
+      headers,
+    })
+    if (res.ok) {
+      setRefreshMsg('Cache refreshed — live site will now show updated images.')
+    } else {
+      setRefreshMsg('Error refreshing cache.')
+    }
+    setRefreshing(false)
   }
 
   function handleImageSaved(rowIndex: number, url: string) {
@@ -376,6 +393,24 @@ function Dashboard({ password }: { password: string }) {
           </div>
           {publishMsg && (
             <p className="mt-4 text-sm font-sans text-[#61717A] border-l-2 border-[#61717A] pl-3">{publishMsg}</p>
+          )}
+        </div>
+
+        {/* Refresh Cache */}
+        <div className="bg-white border border-[#CBD4D7] p-6 mb-10">
+          <p className="text-xs text-[#61717A] uppercase tracking-widest font-sans mb-3">Refresh Cache</p>
+          <p className="text-sm text-[#4C4C4C] font-sans font-light mb-5">
+            Force the live site to pull fresh data from the Google Sheet immediately — use this after updating images or content directly in the sheet.
+          </p>
+          <button
+            onClick={handleRefreshCache}
+            disabled={refreshing}
+            className="bg-[#61717A] text-white font-sans font-semibold text-sm uppercase tracking-widest px-8 py-2 hover:bg-[#2C3539] transition-colors disabled:opacity-40"
+          >
+            {refreshing ? 'Refreshing…' : 'Refresh Cache'}
+          </button>
+          {refreshMsg && (
+            <p className="mt-4 text-sm font-sans text-[#61717A] border-l-2 border-[#61717A] pl-3">{refreshMsg}</p>
           )}
         </div>
 
