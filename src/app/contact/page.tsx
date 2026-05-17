@@ -4,20 +4,20 @@ import Script from 'next/script'
 const contactUrl = `${process.env.NEXT_PUBLIC_SITE_URL || 'https://lynchburgmarketingcompany.com'}/contact`
 
 export const metadata: Metadata = {
-  title: 'Free Marketing Consultation | Lynchburg Marketing Company',
+  title: 'Contact | Free Marketing Consultation — Lynchburg, VA',
   description:
-    'Schedule a free marketing consultation with Mullins Media Co. in Lynchburg, VA. We help local businesses with SEO, digital advertising, content strategy, and website design.',
+    'Get a free marketing consultation with Mullins Media Co. in Lynchburg, VA. Call (434) 485-5739 or fill out the form. We help Lynchburg businesses with SEO, advertising, social media, and web design.',
   alternates: { canonical: contactUrl },
   openGraph: {
-    title: 'Free Marketing Consultation | Lynchburg Marketing Company',
-    description: 'Schedule a free marketing consultation with Mullins Media Co. in Lynchburg, VA. No pressure, no obligation.',
+    title: 'Contact | Free Marketing Consultation — Lynchburg, VA',
+    description: 'Get a free marketing consultation with Mullins Media Co. in Lynchburg, VA. Call (434) 485-5739 or fill out the form.',
     url: contactUrl,
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Free Marketing Consultation | Lynchburg Marketing Company',
-    description: 'Schedule a free marketing consultation with Mullins Media Co. in Lynchburg, VA. No pressure, no obligation.',
+    title: 'Contact | Free Marketing Consultation — Lynchburg, VA',
+    description: 'Get a free marketing consultation with Mullins Media Co. in Lynchburg, VA. Call (434) 485-5739 or fill out the form.',
   },
 }
 
@@ -30,18 +30,33 @@ const whatToExpect = [
   {
     step: '02',
     heading: 'We reach out within one business day',
-    body: 'We review your submission and get back to you quickly to schedule a call. We answer the phone and reply to emails — that is the baseline standard around here.',
+    body: 'We review your submission and contact you to schedule a call. We answer the phone and reply to emails — that is the baseline standard here.',
   },
   {
     step: '03',
-    heading: 'Free 30-minute consultation',
-    body: 'We will talk through your goals, your market, and what is actually working (or not) for your business online. No pitch deck, no hard sell — just a real conversation.',
+    heading: 'Free 30-minute strategy call',
+    body: 'We will talk through your goals, your Lynchburg market, and what is working (or not) for your business online. No pitch deck, no hard sell.',
   },
   {
     step: '04',
-    heading: 'A strategy built for Lynchburg',
-    body: 'If we are a fit, we build a custom plan around your specific business and your local competitive landscape. We only onboard clients we are confident we can help.',
+    heading: 'A custom plan for your business',
+    body: 'If we are a fit, we build a strategy around your specific business and local competitive landscape. We only onboard clients we are confident we can help.',
   },
+]
+
+const services = [
+  'Search engine optimization (SEO)',
+  'Google Ads & pay-per-click',
+  'Social media management',
+  'TV advertising (WSET)',
+  'Radio advertising (WLNI)',
+  'Billboard placement',
+  'Website design & development',
+  'Content marketing & blogging',
+  'Local SEO & Google Business Profile',
+  'Email marketing',
+  'Brand identity & logo design',
+  'Photography & video production',
 ]
 
 export default function ContactPage() {
@@ -50,21 +65,21 @@ export default function ContactPage() {
 
       {/* Header */}
       <div className="max-w-3xl mb-12">
-        <p className="text-xs text-[#61717A] uppercase tracking-widest font-sans mb-4">Let&apos;s talk</p>
+        <p className="text-xs text-[#61717A] uppercase tracking-widest font-sans mb-4">Let&apos;s Talk</p>
         <h1 className="text-4xl sm:text-5xl font-serif font-semibold text-[#2C3539] mb-6 leading-tight">
-          Get Your Free Consultation
+          Get Your Free Marketing Consultation
         </h1>
         <div className="border-b border-[#CBD4D7] mb-8" />
         <p className="text-[#61717A] text-lg font-sans font-light leading-relaxed">
-          Whether you need SEO, paid advertising, social media, a new website, or you are not sure
-          where to start — we can help. Fill out the form and we will reach out within one business
-          day to schedule a free 30-minute strategy call.
+          Whether you need SEO, Google Ads, TV advertising, social media, a new website, or you are not
+          sure where to start — we can help. Mullins Media Co. has been growing Lynchburg businesses since
+          2013. Fill out the form or call us directly and we will get back to you within one business day.
         </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-16">
 
-        {/* Left: form + contact info */}
+        {/* Left: form + direct contact */}
         <div className="lg:col-span-3">
           <div className="overflow-hidden mb-8" style={{ height: '492px' }}>
             <iframe
@@ -88,34 +103,55 @@ export default function ContactPage() {
 
           <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="lazyOnload" />
 
-          {/* Direct contact */}
-          <div className="border-t border-[#CBD4D7] pt-8">
-            <p className="text-xs text-[#61717A] uppercase tracking-widest font-sans mb-4">Or reach us directly</p>
-            <div className="space-y-3">
-              <p className="font-sans text-[#4C4C4C]">
-                <span className="text-[#61717A] text-sm uppercase tracking-widest font-semibold mr-3">Phone</span>
-                <a href="tel:4344855739" className="hover:text-[#61717A] transition-colors">
+          {/* Direct contact — visible NAP for local SEO */}
+          <div className="border border-[#CBD4D7] bg-[#F5F6F6] p-8">
+            <p className="text-xs text-[#61717A] uppercase tracking-widest font-sans mb-6">Or reach us directly</p>
+            <address className="not-italic space-y-4">
+              <div className="flex items-start gap-4">
+                <span className="text-xs font-sans font-semibold uppercase tracking-widest text-[#61717A] w-16 flex-shrink-0 mt-0.5">Phone</span>
+                <a
+                  href="tel:4344855739"
+                  itemProp="telephone"
+                  className="text-[#2C3539] font-sans font-medium hover:text-[#61717A] transition-colors"
+                >
                   (434) 485-5739
                 </a>
-              </p>
-              <p className="font-sans text-[#4C4C4C]">
-                <span className="text-[#61717A] text-sm uppercase tracking-widest font-semibold mr-3">Email</span>
-                <a href="mailto:hello@mullinsmediaco.com" className="hover:text-[#61717A] transition-colors">
+              </div>
+              <div className="flex items-start gap-4">
+                <span className="text-xs font-sans font-semibold uppercase tracking-widest text-[#61717A] w-16 flex-shrink-0 mt-0.5">Email</span>
+                <a
+                  href="mailto:hello@mullinsmediaco.com"
+                  className="text-[#2C3539] font-sans font-medium hover:text-[#61717A] transition-colors"
+                >
                   hello@mullinsmediaco.com
                 </a>
-              </p>
-              <p className="font-sans text-[#4C4C4C]">
-                <span className="text-[#61717A] text-sm uppercase tracking-widest font-semibold mr-3">Location</span>
-                Lynchburg, VA
-              </p>
-            </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <span className="text-xs font-sans font-semibold uppercase tracking-widest text-[#61717A] w-16 flex-shrink-0 mt-0.5">Location</span>
+                <span className="text-[#2C3539] font-sans font-medium">
+                  <span itemProp="addressLocality">Lynchburg</span>,{' '}
+                  <span itemProp="addressRegion">VA</span>
+                </span>
+              </div>
+              <div className="flex items-start gap-4">
+                <span className="text-xs font-sans font-semibold uppercase tracking-widest text-[#61717A] w-16 flex-shrink-0 mt-0.5">Web</span>
+                <a
+                  href="https://mullinsmediaco.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#2C3539] font-sans font-medium hover:text-[#61717A] transition-colors"
+                >
+                  mullinsmediaco.com
+                </a>
+              </div>
+            </address>
           </div>
         </div>
 
-        {/* Right: what to expect */}
+        {/* Right: what to expect + services */}
         <div className="lg:col-span-2">
-          <p className="text-xs text-[#61717A] uppercase tracking-widest font-sans mb-6">What to expect</p>
-          <div className="space-y-8">
+          <p className="text-xs text-[#61717A] uppercase tracking-widest font-sans mb-6">What to Expect</p>
+          <div className="space-y-8 mb-12">
             {whatToExpect.map(item => (
               <div key={item.step} className="flex gap-4">
                 <span className="font-serif text-2xl font-semibold text-[#CBD4D7] flex-shrink-0 leading-none mt-1">
@@ -129,55 +165,42 @@ export default function ContactPage() {
             ))}
           </div>
 
-          {/* Who we work with */}
-          <div className="mt-12 bg-[#F5F6F6] border border-[#CBD4D7] p-6">
-            <p className="text-xs text-[#61717A] uppercase tracking-widest font-sans mb-3">Who we work with</p>
-            <p className="text-sm text-[#4C4C4C] font-sans font-light leading-relaxed mb-4">
-              We work with small businesses, service providers, and growth-minded entrepreneurs in
-              Lynchburg, VA and the surrounding central Virginia region. If you are trying to get
-              found on Google, generate more leads, or build a brand people actually remember —
-              we should talk.
-            </p>
-            <p className="text-sm text-[#4C4C4C] font-sans font-light leading-relaxed">
-              We only take on a limited number of clients at a time. If we are not the right fit,
-              we will tell you that too.
-            </p>
-          </div>
-
-          {/* Services quick list */}
-          <div className="mt-8">
-            <p className="text-xs text-[#61717A] uppercase tracking-widest font-sans mb-4">Services we offer</p>
+          <div className="border-t border-[#CBD4D7] pt-8">
+            <p className="text-xs text-[#61717A] uppercase tracking-widest font-sans mb-6">Services We Offer</p>
             <ul className="space-y-2">
-              {[
-                'Search engine optimization (SEO)',
-                'Google Ads & paid search',
-                'Social media management',
-                'Website design & development',
-                'Content marketing & blogging',
-                'Local SEO & Google Business Profile',
-                'Email marketing',
-                'Brand identity & design',
-                'Photography & video',
-              ].map(service => (
-                <li key={service} className="text-sm text-[#4C4C4C] font-sans font-light flex items-center gap-2">
-                  <span className="text-[#61717A]">→</span> {service}
+              {services.map(service => (
+                <li key={service} className="text-sm text-[#4C4C4C] font-sans font-light flex items-start gap-2">
+                  <span className="text-[#61717A] flex-shrink-0 mt-0.5">→</span>
+                  {service}
                 </li>
               ))}
             </ul>
+          </div>
+
+          <div className="mt-8 bg-[#2C3539] text-white p-6">
+            <p className="font-serif font-semibold mb-2">Limited availability</p>
+            <p className="text-sm text-[#97a8b0] font-sans font-light leading-relaxed">
+              We only onboard a limited number of marketing clients at a time so every client gets real
+              attention. If we are not the right fit, we will tell you that too.
+            </p>
           </div>
         </div>
       </div>
 
       {/* Bottom reassurance */}
-      <div className="mt-20 border-t border-[#CBD4D7] pt-12 text-center max-w-2xl mx-auto">
-        <p className="font-serif text-xl font-semibold text-[#2C3539] mb-4">
-          A real agency. Real results. No fluff.
-        </p>
-        <p className="text-[#61717A] font-sans font-light leading-relaxed">
-          Mullins Media Co. has been serving Lynchburg businesses since 2013. Our team of nine
-          specialists covers everything from SEO and paid ads to photography, video, and brand
-          design. We show up, we answer the phone, and we do not miss deadlines.
-        </p>
+      <div className="mt-20 border-t border-[#CBD4D7] pt-12">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+          {[
+            { heading: 'Founded 2013', body: 'Over a decade of growing Lynchburg businesses through marketing, media, and advertising.' },
+            { heading: 'Team of 9', body: 'SEO strategists, social media managers, designers, videographers, photographers, and drone pilots.' },
+            { heading: 'Full service', body: 'From Google rankings to TV commercials — every marketing channel your customers use, handled in-house.' },
+          ].map(item => (
+            <div key={item.heading} className="px-4">
+              <p className="font-serif text-lg font-semibold text-[#2C3539] mb-2">{item.heading}</p>
+              <p className="text-sm text-[#61717A] font-sans font-light leading-relaxed">{item.body}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )
