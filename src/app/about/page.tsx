@@ -208,23 +208,32 @@ export default function AboutPage() {
       <div className="prose max-w-none text-[#4C4C4C] mb-20">
         <h2>Why does LynchburgMarketingCompany.com exist?</h2>
         <p>
-          This website is a live SEO experiment. We built it specifically to rank on Google for search terms
-          like &ldquo;Lynchburg marketing company,&rdquo; &ldquo;Lynchburg advertising company,&rdquo;
-          &ldquo;marketing agency Lynchburg VA,&rdquo; and &ldquo;Lynchburg SEO.&rdquo; The site runs on a
-          content pipeline that publishes keyword-targeted blog posts on a regular schedule. Every piece of
-          copy is written to rank for something specific.
+          This entire website — every line of code, every page, every blog post, the SEO strategy, the
+          automated content pipeline — was built in a single day using AI. Specifically Claude, Anthropic&apos;s
+          AI. A human directed the process. AI did the building.
         </p>
         <p>
-          We tell you this openly because transparency is one of our values — and because it makes for a
-          better story. If you found this site through a Google search, the strategy worked. If you are a
-          Lynchburg business owner who wants this kind of thinking applied to your own brand, that is
-          exactly what we do for clients.
+          Yes, some of the blog images don&apos;t perfectly match the articles. Yes, the posts are long.
+          Yes, parts of the copy are a little stiff. We know. We left it that way because the point was
+          never perfection — the point was to build something fast and see if it ranked. It ranked.
+          You&apos;re here.
         </p>
         <p>
-          Mullins Media Co. is a real company. The team you see above is the real team. The results we
-          describe — growing client revenue 85% in months, scaling a business from 3 to 50+ employees,
-          quadrupling website traffic — are real outcomes. We would love to talk about what that could
-          look like for your Lynchburg business.
+          We built this to prove that we actually know how to use AI — not to generate memes or write
+          awkward email blasts, but to build real marketing infrastructure that compounds over time.
+          Keyword-targeted content. Technical SEO done right. Automated publishing pipelines. Pages
+          built around how people actually search.
+        </p>
+        <p>
+          Most of our competitors are still figuring out what AI is. We were using automation and
+          systems-thinking to grow businesses before AI was a buzzword. Now we have better tools,
+          and we are very good at using them.
+        </p>
+        <p>
+          The team above is real. The clients are real. The results — 85% revenue growth, scaling
+          businesses from 3 to 50+ employees, quadrupling website traffic — are real. This site is
+          just the demo. Want to see what it looks like when we point that same energy at your
+          business?
         </p>
       </div>
 
