@@ -17,6 +17,8 @@ const poppins = Poppins({
   display: 'swap',
 })
 
+const teamPhoto = 'https://images.squarespace-cdn.com/content/v1/60f6d968e0d96036f369360f/f58712e1-0f03-48de-9477-45fc64342dde/Mullins+Media+2024-79_websize.jpg'
+
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://lynchburgmarketingcompany.com'),
   title: {
@@ -29,10 +31,19 @@ export const metadata: Metadata = {
     siteName: 'Lynchburg Marketing Company',
     type: 'website',
     locale: 'en_US',
+    images: [
+      {
+        url: teamPhoto,
+        width: 1200,
+        height: 800,
+        alt: 'Mullins Media Co. team — Lynchburg marketing and advertising agency',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     site: '@mullinsmediaco',
+    images: [teamPhoto],
   },
 }
 
