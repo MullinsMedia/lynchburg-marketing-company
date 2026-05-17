@@ -4,24 +4,45 @@ import BlogCard from '@/components/BlogCard'
 import { getPublishedPosts } from '@/lib/blog'
 import { categoryToSlug } from '@/lib/seo'
 
-const blogUrl = `${process.env.NEXT_PUBLIC_SITE_URL || 'https://lynchburgmarketingcompany.com'}/blog`
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://lynchburgmarketingcompany.com'
+const blogUrl = `${siteUrl}/blog`
 
-export const metadata: Metadata = {
-  title: 'Blog | Lynchburg Marketing & SEO Insights',
-  description:
-    'Marketing tips, SEO strategies, and advertising insights for businesses in Lynchburg, VA. Written by Mullins Media Co.',
-  alternates: { canonical: blogUrl },
-  openGraph: {
-    title: 'Blog | Lynchburg Marketing & SEO Insights',
-    description: 'Marketing tips, SEO strategies, and advertising insights for Lynchburg, VA businesses.',
-    url: blogUrl,
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Blog | Lynchburg Marketing & SEO Insights',
-    description: 'Marketing tips, SEO strategies, and advertising insights for Lynchburg, VA businesses.',
-  },
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: Promise<{ page?: string }>
+}): Promise<Metadata> {
+  const params = await searchParams
+  const page = Math.max(1, parseInt(params.page || '1', 10))
+  const isFirstPage = page === 1
+
+  const title = isFirstPage
+    ? 'Blog | Lynchburg Marketing & SEO Insights'
+    : `Blog — Page ${page} | Lynchburg Marketing & SEO Insights`
+  const description = isFirstPage
+    ? 'Marketing tips, SEO strategies, and advertising insights for businesses in Lynchburg, VA. Written by Mullins Media Co.'
+    : `Page ${page} of the Lynchburg Marketing Company blog — SEO and marketing tips for Lynchburg, VA businesses.`
+  // Paginated pages use the base /blog URL as canonical to avoid duplicate issues
+  const canonical = isFirstPage ? blogUrl : `${blogUrl}?page=${page}`
+
+  return {
+    title,
+    description,
+    alternates: { canonical },
+    // Noindex paginated pages beyond page 1 so Google only indexes /blog
+    ...(isFirstPage ? {} : { robots: { index: false, follow: true } }),
+    openGraph: {
+      title,
+      description,
+      url: canonical,
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+    },
+  }
 }
 
 const POSTS_PER_PAGE = 12
