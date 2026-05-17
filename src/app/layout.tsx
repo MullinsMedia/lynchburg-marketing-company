@@ -28,6 +28,11 @@ export const metadata: Metadata = {
   openGraph: {
     siteName: 'Lynchburg Marketing Company',
     type: 'website',
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@mullinsmediaco',
   },
 }
 

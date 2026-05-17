@@ -1,10 +1,24 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
+const aboutUrl = `${process.env.NEXT_PUBLIC_SITE_URL || 'https://lynchburgmarketingcompany.com'}/about`
+
 export const metadata: Metadata = {
   title: 'About | Who Is Lynchburg Marketing Company?',
   description:
     'Lynchburg Marketing Company is an SEO experiment run by Mullins Media Co., a real marketing agency in Lynchburg, VA.',
+  alternates: { canonical: aboutUrl },
+  openGraph: {
+    title: 'About | Who Is Lynchburg Marketing Company?',
+    description: 'Lynchburg Marketing Company is an SEO experiment run by Mullins Media Co., a real marketing agency in Lynchburg, VA.',
+    url: aboutUrl,
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About | Who Is Lynchburg Marketing Company?',
+    description: 'Lynchburg Marketing Company is an SEO experiment run by Mullins Media Co., a real marketing agency in Lynchburg, VA.',
+  },
 }
 
 export default function AboutPage() {
