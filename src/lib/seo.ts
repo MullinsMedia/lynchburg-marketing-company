@@ -1,3 +1,22 @@
+// ─── Category helpers ─────────────────────────────────────────────
+
+export function categoryToSlug(category: string): string {
+  return category.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+}
+
+export function slugToCategory(slug: string): string {
+  return slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
+}
+
+// ─── Reading time ─────────────────────────────────────────────────
+
+export function readingTime(text: string): number {
+  const words = text.trim().split(/\s+/).length
+  return Math.max(1, Math.round(words / 200))
+}
+
+// ─── FAQ helpers ──────────────────────────────────────────────────
+
 export type FaqEntry = { question: string; answer: string }
 
 /**
