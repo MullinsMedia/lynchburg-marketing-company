@@ -53,38 +53,53 @@ const services = [
     icon: '🔍',
     title: 'SEO & Search Ranking',
     description:
-      'Get your Lynchburg business found on Google. We build content strategies and technical SEO that drives organic traffic.',
+      'Get your Lynchburg business found on Google. We build content strategies, technical SEO foundations, and link profiles that drive lasting organic traffic — not quick tricks that stop working next quarter.',
   },
   {
     icon: '✍️',
     title: 'Content Marketing',
     description:
-      'Blog posts, landing pages, and copy that ranks. Real content written for real people — and optimized for search engines.',
+      'Blog posts, landing pages, and copy that ranks. Real content written for real people — researched for search intent, optimized for keywords, and published on a consistent schedule.',
   },
   {
     icon: '📱',
-    title: 'Social Media',
+    title: 'Social Media Management',
     description:
-      'Build a presence where your Lynchburg customers spend their time. Strategy, content, and management that actually works.',
+      'Build a presence where your Lynchburg customers spend their time. We handle strategy, content creation, scheduling, and community management — so you can focus on your business.',
   },
   {
     icon: '📣',
     title: 'Paid Advertising',
     description:
-      'Google Ads and social campaigns that convert. We run Lynchburg advertising that spends your budget wisely.',
+      'Google Ads, social campaigns, and local advertising that converts. We manage your budget, write the ads, test the audiences, and report what actually works.',
   },
   {
     icon: '💻',
     title: 'Website Design',
     description:
-      'Fast, modern websites built to convert visitors into leads. Clean design, mobile-first, and built to rank.',
+      'Fast, modern websites built to convert visitors into leads. Clean design, mobile-first, and engineered to rank in search from day one. We have designed dozens of sites for Lynchburg businesses.',
   },
   {
     icon: '📍',
     title: 'Local SEO',
     description:
-      'Dominate local search results in Lynchburg, VA. Google Business Profile, local citations, and map pack optimization.',
+      'Dominate local search results in Lynchburg, VA. We optimize your Google Business Profile, build local citations, target map pack keywords, and help you outrank competitors in your own backyard.',
   },
+]
+
+const stats = [
+  { value: '15+', label: 'Years in Lynchburg' },
+  { value: '5,000+', label: 'Properties photographed' },
+  { value: '2013', label: 'Year founded' },
+  { value: '9', label: 'Person team' },
+]
+
+const clients = [
+  'Happy Waffle',
+  'Artisan Venue',
+  'City View Venue',
+  'Avoca',
+  'Leisr Stays',
 ]
 
 export default async function HomePage() {
@@ -146,6 +161,72 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* Stats */}
+      <section className="py-16 px-4 bg-[#2C3539]">
+        <div className="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-6">
+          {stats.map(s => (
+            <div key={s.label} className="text-center">
+              <p className="font-serif text-4xl font-semibold text-white mb-1">{s.value}</p>
+              <p className="text-xs font-sans text-[#97a8b0] uppercase tracking-widest">{s.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Why us */}
+      <section className="py-24 px-4 bg-[#F5F6F6] border-y border-[#CBD4D7]">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <div>
+              <p className="text-xs text-[#61717A] uppercase tracking-widest font-sans mb-3">Why Mullins Media Co.</p>
+              <h2 className="text-3xl sm:text-4xl font-serif font-semibold text-[#2C3539] mb-6">
+                A Lynchburg marketing team that actually shows up
+              </h2>
+              <p className="text-[#4C4C4C] leading-relaxed mb-4 font-sans font-light">
+                Adam Mullins started building marketing strategies in Lynchburg over 15 years ago.
+                Since founding Mullins Media Co. in 2013, the agency has grown into a nine-person team
+                covering everything from SEO and paid advertising to website design, photography, video,
+                and social media.
+              </p>
+              <p className="text-[#4C4C4C] leading-relaxed mb-8 font-sans font-light">
+                We are not a national agency that treats Lynchburg like a zip code. We live here, work
+                here, and understand the local market in a way that outsiders simply cannot. When you
+                work with us, you get real people who answer the phone and do not miss deadlines.
+              </p>
+              <blockquote className="border-l-4 border-[#61717A] pl-6 italic text-[#61717A] font-sans font-light leading-relaxed">
+                &ldquo;We show up. We answer the phone. We don&apos;t miss deadlines. We walk alongside you
+                to help your company grow.&rdquo;
+              </blockquote>
+            </div>
+            <div className="space-y-4">
+              {[
+                { heading: 'Local expertise', body: 'We have worked with Lynchburg businesses across dozens of industries. We know the market, the competition, and what it takes to rank here.' },
+                { heading: 'Full-service team', body: 'One agency for SEO, ads, content, social, design, photography, and video. No juggling multiple vendors or losing context between them.' },
+                { heading: 'Limited client roster', body: 'We only onboard a limited number of marketing clients at a time. You get actual attention — not a shared account manager stretched across 50 brands.' },
+                { heading: 'Transparent strategy', body: 'We tell you exactly what we are doing and why. No black boxes, no vague reports. You will always know where your money is going.' },
+              ].map(item => (
+                <div key={item.heading} className="bg-white border border-[#CBD4D7] p-6">
+                  <p className="font-serif font-semibold text-[#2C3539] mb-2">{item.heading}</p>
+                  <p className="text-sm text-[#61717A] font-sans font-light leading-relaxed">{item.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Clients */}
+      <section className="py-16 px-4 bg-white border-b border-[#CBD4D7]">
+        <div className="max-w-5xl mx-auto text-center">
+          <p className="text-xs text-[#61717A] uppercase tracking-widest font-sans mb-8">Trusted by Lynchburg businesses</p>
+          <div className="flex flex-wrap justify-center gap-x-10 gap-y-4">
+            {clients.map(client => (
+              <span key={client} className="font-serif text-lg text-[#CBD4D7] font-semibold">{client}</span>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Honest disclaimer */}
       <section className="py-20 px-4 bg-[#F5F6F6] border-y border-[#CBD4D7]">
         <div className="max-w-3xl mx-auto text-center">
@@ -157,7 +238,7 @@ export default async function HomePage() {
             Yes, this website exists specifically to rank on Google for &ldquo;Lynchburg Marketing Company.&rdquo; That&apos;s not a bug — it&apos;s a feature. We&apos;re a marketing agency. This is literally what we do, and we&apos;re doing it in public so you can watch how it works. Meta, right?
           </p>
           <p className="text-[#4C4C4C] leading-relaxed mb-10 font-sans font-light">
-            If you want this kind of thinking applied to your Lynchburg business, you know where to find us.
+            We build content systems, optimize for local search, and help businesses compete in Lynchburg and beyond. This site is a live demonstration that it works. If you want this kind of strategy applied to your business, you know where to find us.
           </p>
           <a
             href="https://mullinsmediaco.com"
