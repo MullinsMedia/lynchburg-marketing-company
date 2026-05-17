@@ -18,9 +18,14 @@ const poppins = Poppins({
 })
 
 const teamPhoto = 'https://images.squarespace-cdn.com/content/v1/60f6d968e0d96036f369360f/f58712e1-0f03-48de-9477-45fc64342dde/Mullins+Media+2024-79_websize.jpg'
+const logoIcon = 'https://images.squarespace-cdn.com/content/v1/60f6d968e0d96036f369360f/b2c5f66a-2700-4d6c-a9b8-a5e31d234e25/LM.png?format=750w'
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://lynchburgmarketingcompany.com'),
+  icons: {
+    icon: logoIcon,
+    apple: logoIcon,
+  },
   title: {
     default: 'Lynchburg Marketing Company',
     template: '%s | Lynchburg Marketing Company',
