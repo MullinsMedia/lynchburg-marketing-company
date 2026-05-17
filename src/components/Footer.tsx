@@ -1,6 +1,6 @@
 export default function Footer() {
   const year = new Date().getFullYear()
-  const phone = process.env.NEXT_PUBLIC_PHONE
+  const phone = process.env.NEXT_PUBLIC_PHONE || '(434) 485-5739'
 
   return (
     <footer className="bg-[#2C3539] text-[#CBD4D7] mt-20">
