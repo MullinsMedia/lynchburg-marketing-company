@@ -1,10 +1,24 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
 
+const contactUrl = `${process.env.NEXT_PUBLIC_SITE_URL || 'https://lynchburgmarketingcompany.com'}/contact`
+
 export const metadata: Metadata = {
   title: 'Free Marketing Consultation | Lynchburg Marketing Company',
   description:
     'Get a free marketing consultation with Lynchburg Marketing Company. We help businesses in Lynchburg, VA get found on Google and grow.',
+  alternates: { canonical: contactUrl },
+  openGraph: {
+    title: 'Free Marketing Consultation | Lynchburg Marketing Company',
+    description: 'Get a free marketing consultation with Lynchburg Marketing Company. We help Lynchburg, VA businesses get found on Google and grow.',
+    url: contactUrl,
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Free Marketing Consultation | Lynchburg Marketing Company',
+    description: 'Get a free marketing consultation with Lynchburg Marketing Company. We help Lynchburg, VA businesses get found on Google and grow.',
+  },
 }
 
 export default function ContactPage() {

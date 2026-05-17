@@ -3,14 +3,23 @@ import Link from 'next/link'
 import BlogCard from '@/components/BlogCard'
 import { getPublishedPosts } from '@/lib/blog'
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://lynchburgmarketingcompany.com'
+
 export const metadata: Metadata = {
   title: 'Lynchburg Marketing Company | Local SEO & Advertising in Lynchburg VA',
   description:
     'Lynchburg Marketing Company delivers SEO, local advertising, and digital marketing for businesses in Lynchburg, Virginia. Get found on Google.',
+  alternates: { canonical: siteUrl },
   openGraph: {
     title: 'Lynchburg Marketing Company | Local SEO & Advertising in Lynchburg VA',
     description: "Get found on Google with Lynchburg's most self-aware marketing company.",
-    images: ['/og-home.jpg'],
+    url: siteUrl,
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Lynchburg Marketing Company | Local SEO & Advertising in Lynchburg VA',
+    description: "Get found on Google with Lynchburg's most self-aware marketing company.",
   },
 }
 

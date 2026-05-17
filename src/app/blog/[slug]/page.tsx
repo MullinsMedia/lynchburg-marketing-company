@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getPublishedPosts, getPostBySlug } from '@/lib/blog'
+import { parseFaqQuestions, buildFaqSchema } from '@/lib/seo'
 
 type Props = {
   params: Promise<{ slug: string }>
@@ -22,19 +23,31 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://lynchburgmarketingcompany.com'
+  const url = `${siteUrl}/blog/${post.slug}`
+  const description = post.metaDescription || post.content.slice(0, 160)
+  const images = post.featuredImageUrl ? [{ url: post.featuredImageUrl, width: 1200, height: 630, alt: post.title }] : []
 
   return {
     title: post.title,
-    description: post.metaDescription || post.content.slice(0, 160),
-    alternates: {
-      canonical: `${siteUrl}/blog/${post.slug}`,
-    },
+    description,
+    keywords: post.secondaryKeywords || post.targetKeyword,
+    alternates: { canonical: url },
     openGraph: {
       title: post.title,
-      description: post.metaDescription || post.content.slice(0, 160),
-      images: post.featuredImageUrl ? [{ url: post.featuredImageUrl }] : [],
+      description,
+      url,
       type: 'article',
       publishedTime: post.publishedDate,
+      modifiedTime: post.publishedDate,
+      authors: ['Adam Mullins'],
+      tags: post.secondaryKeywords ? post.secondaryKeywords.split(',').map(s => s.trim()) : [],
+      images,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description,
+      images: post.featuredImageUrl ? [post.featuredImageUrl] : [],
     },
   }
 }
@@ -55,24 +68,55 @@ export default async function BlogPostPage({ params }: Props) {
   }
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://lynchburgmarketingcompany.com'
+  const url = `${siteUrl}/blog/${post.slug}`
 
-  const jsonLd = {
+  // Article schema
+  const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
+    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
     headline: post.title,
-    author: { '@type': 'Person', name: 'Adam Mullins' },
-    publisher: { '@type': 'Organization', name: 'Lynchburg Marketing Company' },
+    description: post.metaDescription || post.content.slice(0, 160),
+    keywords: post.secondaryKeywords || post.targetKeyword,
+    author: {
+      '@type': 'Person',
+      name: 'Adam Mullins',
+      url: 'https://mullinsmediaco.com',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Lynchburg Marketing Company',
+      url: siteUrl,
+    },
     datePublished: post.publishedDate,
-    image: post.featuredImageUrl || undefined,
-    url: `${siteUrl}/blog/${post.slug}`,
+    dateModified: post.publishedDate,
+    url,
+    ...(post.featuredImageUrl && {
+      image: {
+        '@type': 'ImageObject',
+        url: post.featuredImageUrl,
+        width: 1200,
+        height: 630,
+      },
+    }),
   }
+
+  // FAQ schema — parsed from the sheet's faqQuestions field
+  const faqEntries = parseFaqQuestions(post.faqQuestions || '')
+  const faqSchema = buildFaqSchema(faqEntries)
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
 
       <article className="max-w-3xl mx-auto px-4 sm:px-6 py-20">
         {/* Post header */}
@@ -112,6 +156,23 @@ export default async function BlogPostPage({ params }: Props) {
           className="prose max-w-none text-[#4C4C4C]"
           dangerouslySetInnerHTML={{ __html: post.contentHtml }}
         />
+
+        {/* FAQ section — rendered visibly if questions exist */}
+        {faqEntries.length > 0 && (
+          <div className="mt-16 border-t border-[#CBD4D7] pt-12">
+            <h2 className="font-serif text-2xl font-semibold text-[#2C3539] mb-8">
+              Frequently Asked Questions
+            </h2>
+            <dl className="space-y-6">
+              {faqEntries.map((faq, i) => (
+                <div key={i} className="border-b border-[#F5F6F6] pb-6">
+                  <dt className="font-sans font-semibold text-[#2C3539] mb-2">{faq.question}</dt>
+                  <dd className="font-sans font-light text-[#61717A] leading-relaxed">{faq.answer}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        )}
 
         {/* Bottom CTA */}
         <div className="mt-20 bg-[#2C3539] text-white p-10 text-center">

@@ -2,10 +2,24 @@ import type { Metadata } from 'next'
 import BlogCard from '@/components/BlogCard'
 import { getPublishedPosts } from '@/lib/blog'
 
+const blogUrl = `${process.env.NEXT_PUBLIC_SITE_URL || 'https://lynchburgmarketingcompany.com'}/blog`
+
 export const metadata: Metadata = {
   title: 'Blog | Lynchburg Marketing & SEO Insights',
   description:
     'Marketing tips, SEO strategies, and advertising insights for businesses in Lynchburg, VA. Written by Mullins Media Co.',
+  alternates: { canonical: blogUrl },
+  openGraph: {
+    title: 'Blog | Lynchburg Marketing & SEO Insights',
+    description: 'Marketing tips, SEO strategies, and advertising insights for Lynchburg, VA businesses.',
+    url: blogUrl,
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Blog | Lynchburg Marketing & SEO Insights',
+    description: 'Marketing tips, SEO strategies, and advertising insights for Lynchburg, VA businesses.',
+  },
 }
 
 const POSTS_PER_PAGE = 12
