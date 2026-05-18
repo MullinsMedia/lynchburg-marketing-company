@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://lynchburgmarketingcompany.com'
 
@@ -333,6 +334,31 @@ export default function WebsiteDesignPage() {
             >
               Advertising
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Meet Your Specialist */}
+      <section className="py-20 px-6 bg-[#2C3539] text-white">
+        <div className="max-w-5xl mx-auto">
+          <p className="font-sans text-[#CBD4D7] text-sm uppercase tracking-widest mb-10 text-center">Meet Your Specialist</p>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="relative aspect-square w-full max-w-sm mx-auto overflow-hidden">
+              <Image
+                src="https://images.squarespace-cdn.com/content/v1/60f6d968e0d96036f369360f/5948e93a-c4b8-4fab-add1-3701c2b3615f/Mullins+Media+Headshots+2025.jpg"
+                alt="Delaney Poff, Project Manager at Mullins Media Co."
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+            <div>
+              <h2 className="font-serif text-2xl md:text-3xl font-bold mb-2">Delaney Poff</h2>
+              <p className="font-sans text-[#CBD4D7] text-sm uppercase tracking-widest mb-6">Project Manager</p>
+              <p className="font-sans text-[#CBD4D7] leading-relaxed">
+                Delaney Poff manages website design projects at Mullins Media Co. A Liberty University graduate with a degree in Strategic Communication, Delaney coordinates every website build from initial strategy through launch — making sure projects stay on time, on budget, and on brand.
+              </p>
+            </div>
           </div>
         </div>
       </section>

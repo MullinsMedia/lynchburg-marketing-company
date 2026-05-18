@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://lynchburgmarketingcompany.com'
 
@@ -284,6 +285,22 @@ export default function CentralVirginiaMarketingPage() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* Team Photo Banner */}
+      <section className="relative w-full aspect-video overflow-hidden">
+        <Image
+          src="https://images.squarespace-cdn.com/content/v1/60f6d968e0d96036f369360f/f58712e1-0f03-48de-9477-45fc64342dde/Mullins+Media+2024-79_websize.jpg"
+          alt="The Mullins Media Co. team — serving businesses across Central Virginia since 2013."
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+      </section>
+      <section className="bg-[#2C3539] py-4 px-6">
+        <p className="font-sans text-[#CBD4D7] text-sm text-center">
+          The Mullins Media Co. team — serving businesses across Central Virginia since 2013.
+        </p>
       </section>
 
       {/* CTA */}

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://lynchburgmarketingcompany.com'
 
@@ -238,6 +239,31 @@ export default function SmithMountainLakeMarketingPage() {
                 <p className="font-sans text-[#CBD4D7] text-sm leading-relaxed">{item.label}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Local Team Member */}
+      <section className="bg-[#2C3539] py-20 px-6 text-white">
+        <div className="max-w-5xl mx-auto">
+          <p className="font-sans text-[#CBD4D7] text-sm uppercase tracking-widest mb-10 text-center">Your Local Contact</p>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="relative aspect-square w-full max-w-sm mx-auto overflow-hidden">
+              <Image
+                src="https://images.squarespace-cdn.com/content/v1/60f6d968e0d96036f369360f/7bd1b5c9-2cf2-457d-afbc-b180567bbc32/Ollie+Headshot-2.jpg"
+                alt="Ollie Mullins, Drone Pilot at Mullins Media Co."
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+            <div>
+              <h2 className="font-serif text-2xl md:text-3xl font-bold mb-2">Ollie Mullins</h2>
+              <p className="font-sans text-[#CBD4D7] text-sm uppercase tracking-widest mb-6">Drone Pilot</p>
+              <p className="font-sans text-[#CBD4D7] leading-relaxed">
+                Ollie Mullins is our drone pilot and is a skilled FPV and cinema drone operator. For Smith Mountain Lake properties and businesses, drone photography and video are often the most powerful marketing tool available.
+              </p>
+            </div>
           </div>
         </div>
       </section>

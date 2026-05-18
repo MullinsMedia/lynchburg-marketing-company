@@ -349,34 +349,61 @@ export default async function HomePage() {
               This site is the demo. A real campaign, pointed at your business, is the product.
             </p>
           </div>
-          <div className="space-y-4">
-            {[
-              { label: 'AI wrote the code and content on this site', sub: 'Humans wrote the keyword strategy, site architecture, and targeting logic' },
-              { label: 'We know the images are a little off', sub: 'The automated image picker isn\'t perfect. We left it because the rankings aren\'t about images.' },
-              { label: 'We know the blog posts are long', sub: 'That\'s the strategy. Google rewards depth. Every word is intentional.' },
-              { label: 'We built this in a weekend', sub: 'That\'s what 15 years of experience plus modern AI tools looks like.' },
-            ].map(item => (
-              <div key={item.label} className="border border-[#61717A] p-5">
-                <p className="font-sans font-semibold text-white text-sm mb-1">{item.label}</p>
-                <p className="font-sans font-light text-[#97a8b0] text-xs leading-relaxed">{item.sub}</p>
-              </div>
-            ))}
+          <div className="relative h-[480px] overflow-hidden">
+            <Image
+              src="https://images.squarespace-cdn.com/content/v1/60f6d968e0d96036f369360f/316edfad-b9e9-4388-844e-3d6920f3b821/Mullins+Media+Headshots+2025-2.jpg?format=2500w"
+              alt="Adam Mullins — founder of Mullins Media Co., Lynchburg marketing agency"
+              fill
+              className="object-cover object-top"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
           </div>
         </div>
       </section>
 
-      {/* Testimonial */}
+      {/* Testimonials */}
       <section className="py-20 px-4 bg-white border-y border-[#CBD4D7]">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-xs text-[#61717A] uppercase tracking-widest font-sans mb-8">
-            From an actual client — not AI-generated
+        <div className="max-w-5xl mx-auto">
+          <p className="text-xs text-[#61717A] uppercase tracking-widest font-sans mb-10 text-center">
+            From actual clients — not AI-generated
           </p>
-          <blockquote className="font-serif text-xl sm:text-2xl text-[#2C3539] leading-relaxed font-semibold mb-6">
-            &ldquo;Adam and his team are the best! They created our two websites, manage them, make our
-            ads and videos, and even designed our business cards. They are creative, detailed, and
-            literally so fun to work with!&rdquo;
-          </blockquote>
-          <p className="text-sm text-[#61717A] font-sans uppercase tracking-widest">Curtains, Blinds &amp; Bath — Lynchburg, VA</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                quote: 'Adam and his team are the best! They created our two websites, manage them, make our ads and videos, and even designed our business cards. They are creative, detailed, and literally so fun to work with!',
+                name: 'Curtains, Blinds & Bath',
+                location: 'Lynchburg, VA',
+                avatar: 'https://images.squarespace-cdn.com/content/v1/60f6d968e0d96036f369360f/9d1e3b85-3a46-41de-bb91-03f66d3aacec/Jen+Hamilton.png',
+              },
+              {
+                quote: 'Mullins Media has been instrumental in growing our online presence. Their SEO strategy brought us to the top of Google results and the leads have been incredible.',
+                name: 'Dayna Kumar',
+                location: 'Lynchburg, VA',
+                avatar: 'https://images.squarespace-cdn.com/content/v1/60f6d968e0d96036f369360f/9c7419f8-8696-419b-b06c-aab00fd56412/Dayna+Kumar.png',
+              },
+              {
+                quote: 'Working with Mullins Media transformed our marketing. They took the time to understand our business and built a strategy that actually made us money — not just traffic.',
+                name: 'Michelle Cabell',
+                location: 'Central Virginia',
+                avatar: 'https://images.squarespace-cdn.com/content/v1/60f6d968e0d96036f369360f/1f8a2334-2c80-4ce6-9a22-2154670fc61f/Michelle+Cabell.png',
+              },
+            ].map(t => (
+              <div key={t.name} className="flex flex-col">
+                <blockquote className="font-serif text-lg text-[#2C3539] leading-relaxed font-semibold mb-6 flex-grow">
+                  &ldquo;{t.quote}&rdquo;
+                </blockquote>
+                <div className="flex items-center gap-3 mt-auto">
+                  <div className="relative h-12 w-12 rounded-full overflow-hidden flex-shrink-0 bg-[#F5F6F6]">
+                    <Image src={t.avatar} alt={t.name} fill className="object-cover" sizes="48px" />
+                  </div>
+                  <div>
+                    <p className="font-sans font-semibold text-[#2C3539] text-sm">{t.name}</p>
+                    <p className="font-sans text-xs text-[#61717A]">{t.location}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
