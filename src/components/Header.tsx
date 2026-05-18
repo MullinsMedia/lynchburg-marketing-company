@@ -27,9 +27,9 @@ export default function Header() {
             <Image
               src={LOGO_HORIZONTAL}
               alt="Lynchburg Marketing Company"
-              width={220}
-              height={60}
-              className="h-10 w-auto"
+              width={280}
+              height={80}
+              className="h-14 w-auto"
               priority
             />
           </Link>

@@ -149,51 +149,50 @@ export default async function HomePage() {
       />
 
       {/* Hero */}
-      <section className="bg-[#2C3539] text-white py-28 px-4">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <p className="text-[#CBD4D7] text-xs uppercase tracking-widest font-sans mb-6">
-                An AI experiment · Lynchburg, Virginia · Est. 2013
-              </p>
-              <h1 className="text-5xl sm:text-6xl font-serif font-semibold leading-tight mb-6 text-white">
-                We built this site over a weekend. Zero ads. You found it on Google anyway.
-              </h1>
-              <p className="text-lg text-[#97a8b0] mb-4 leading-relaxed font-sans font-light">
-                This entire site — code, content, SEO strategy, all of it — was built by AI over a
-                weekend as an experiment. We spent nothing on advertising. Not a single paid placement.
-                You found us organically because we know how to rank.
-              </p>
-              <p className="text-lg text-[#97a8b0] mb-10 leading-relaxed font-sans font-light">
-                Mullins Media Co. is the real agency behind this. We have been helping Lynchburg
-                businesses actually make money through marketing since 2013. Let&apos;s talk about
-                what that looks like for you.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/contact"
-                  className="inline-block bg-[#61717A] text-white font-sans font-semibold text-sm uppercase tracking-widest px-8 py-4 hover:bg-[#4f6069] transition-colors text-center"
-                >
-                  Get a Free Consultation
-                </Link>
-                <Link
-                  href="/the-experiment"
-                  className="inline-block border border-[#61717A] text-[#CBD4D7] font-sans font-semibold text-sm uppercase tracking-widest px-8 py-4 hover:border-white hover:text-white transition-colors text-center"
-                >
-                  How We Built This →
-                </Link>
-              </div>
-            </div>
-            <div className="relative h-80 lg:h-96 overflow-hidden hidden lg:block">
-              <Image
-                src="https://images.squarespace-cdn.com/content/v1/60f6d968e0d96036f369360f/4375cd1b-e144-4dad-8820-b66b39caab5d/Mullins+Media+2024-84.jpg"
-                alt="Mullins Media Co. team — Lynchburg marketing and advertising agency"
-                fill
-                className="object-cover object-top"
-                priority
-                sizes="(max-width: 1024px) 0px, 50vw"
-              />
-            </div>
+      <section className="bg-[#2C3539] text-white">
+        {/* Team photo — full width */}
+        <div className="relative w-full h-72 sm:h-96 lg:h-[480px] overflow-hidden">
+          <Image
+            src="https://images.squarespace-cdn.com/content/v1/60f6d968e0d96036f369360f/f58712e1-0f03-48de-9477-45fc64342dde/Mullins+Media+2024-79_websize.jpg"
+            alt="Mullins Media Co. team — Lynchburg marketing and advertising agency"
+            fill
+            className="object-cover object-center"
+            priority
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-[#2C3539]/30" />
+        </div>
+        {/* Hero text below photo */}
+        <div className="max-w-5xl mx-auto px-4 py-20">
+          <p className="text-[#CBD4D7] text-xs uppercase tracking-widest font-sans mb-6">
+            An AI experiment · Lynchburg, Virginia · Est. 2013
+          </p>
+          <h1 className="text-5xl sm:text-6xl font-serif font-semibold leading-tight mb-6 text-white max-w-3xl">
+            We built this site over a weekend. Zero ads. You found it on Google anyway.
+          </h1>
+          <p className="text-lg text-[#97a8b0] mb-4 leading-relaxed font-sans font-light max-w-2xl">
+            This entire site — code, content, SEO strategy, all of it — was built by AI over a
+            weekend as an experiment. We spent nothing on advertising. Not a single paid placement.
+            You found us organically because we know how to rank.
+          </p>
+          <p className="text-lg text-[#97a8b0] mb-10 leading-relaxed font-sans font-light max-w-2xl">
+            Mullins Media Co. is the real agency behind this. We have been helping Lynchburg
+            businesses actually make money through marketing since 2013. Let&apos;s talk about
+            what that looks like for you.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Link
+              href="/contact"
+              className="inline-block bg-[#61717A] text-white font-sans font-semibold text-sm uppercase tracking-widest px-8 py-4 hover:bg-[#4f6069] transition-colors text-center"
+            >
+              Get a Free Consultation
+            </Link>
+            <Link
+              href="/the-experiment"
+              className="inline-block border border-[#61717A] text-[#CBD4D7] font-sans font-semibold text-sm uppercase tracking-widest px-8 py-4 hover:border-white hover:text-white transition-colors text-center"
+            >
+              How We Built This →
+            </Link>
           </div>
         </div>
       </section>
@@ -387,10 +386,10 @@ export default async function HomePage() {
           <p className="text-xs text-center text-[#61717A] uppercase tracking-widest font-sans mb-10">
             Real clients. Real results. Not AI-generated logos.
           </p>
-          <div className="grid grid-cols-3 sm:grid-cols-6 gap-6 items-center">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
             {clientLogos.map(logo => (
-              <div key={logo.name} className="relative h-12 grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all">
-                <Image src={logo.url} alt={logo.name} fill className="object-contain" sizes="120px" />
+              <div key={logo.name} className="relative h-20 w-full">
+                <Image src={logo.url} alt={logo.name} fill className="object-contain" sizes="160px" />
               </div>
             ))}
           </div>
