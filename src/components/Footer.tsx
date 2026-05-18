@@ -15,9 +15,9 @@ export default function Footer() {
             <Image
               src={LOGO_HORIZONTAL}
               alt="Lynchburg Marketing Company"
-              width={220}
-              height={60}
-              className="h-10 w-auto mb-2"
+              width={320}
+              height={90}
+              className="h-16 w-auto mb-2"
             />
             <p className="text-sm text-[#97a8b0] mt-1">A Mullins Media Co brand</p>
             {/* Visible NAP for local SEO — address */}

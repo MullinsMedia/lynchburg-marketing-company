@@ -21,15 +21,15 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-[#CBD4D7]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-24">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <Image
               src={LOGO_HORIZONTAL}
               alt="Lynchburg Marketing Company"
-              width={280}
-              height={80}
-              className="h-14 w-auto"
+              width={360}
+              height={100}
+              className="h-20 w-auto"
               priority
             />
           </Link>
