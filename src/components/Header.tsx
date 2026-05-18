@@ -1,8 +1,11 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
+
+const LOGO_HORIZONTAL = 'https://images.squarespace-cdn.com/content/v1/60f6d968e0d96036f369360f/b2938e5c-2c27-489f-ac2e-12d5b7e721aa/Lynchburg_Marketing_Company.png?format=750w'
 
 const navLinks = [
   { href: '/services', label: 'Services' },
@@ -19,12 +22,16 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-white border-b border-[#CBD4D7]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Wordmark */}
-          <Link
-            href="/"
-            className="font-serif text-[#2C3539] font-semibold text-base sm:text-lg leading-tight hover:text-[#61717A] transition-colors tracking-wide"
-          >
-            Lynchburg Marketing Company
+          {/* Logo */}
+          <Link href="/" className="flex-shrink-0">
+            <Image
+              src={LOGO_HORIZONTAL}
+              alt="Lynchburg Marketing Company"
+              width={220}
+              height={60}
+              className="h-10 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop nav */}

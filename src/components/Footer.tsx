@@ -1,3 +1,7 @@
+import Image from 'next/image'
+
+const LOGO_HORIZONTAL = 'https://images.squarespace-cdn.com/content/v1/60f6d968e0d96036f369360f/b2938e5c-2c27-489f-ac2e-12d5b7e721aa/Lynchburg_Marketing_Company.png?format=750w'
+
 export default function Footer() {
   const year = new Date().getFullYear()
   const phone = process.env.NEXT_PUBLIC_PHONE || '(434) 485-5739'
@@ -8,7 +12,13 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-start justify-between gap-8">
           {/* Brand + address */}
           <div>
-            <p className="font-serif text-white font-semibold text-lg tracking-wide">Lynchburg Marketing Company</p>
+            <Image
+              src={LOGO_HORIZONTAL}
+              alt="Lynchburg Marketing Company"
+              width={220}
+              height={60}
+              className="h-10 w-auto mb-2"
+            />
             <p className="text-sm text-[#97a8b0] mt-1">A Mullins Media Co brand</p>
             {/* Visible NAP for local SEO — address */}
             <address className="not-italic mt-3 text-sm text-[#97a8b0] leading-relaxed">
