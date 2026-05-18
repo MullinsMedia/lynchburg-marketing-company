@@ -151,7 +151,7 @@ export default async function HomePage() {
       {/* Hero */}
       <section className="bg-[#2C3539] text-white">
         {/* Team photo — full width */}
-        <div className="relative w-full h-72 sm:h-96 lg:h-[480px] overflow-hidden">
+        <div className="relative w-full h-[320px] sm:h-[480px] lg:h-[600px] overflow-hidden">
           <Image
             src="https://images.squarespace-cdn.com/content/v1/60f6d968e0d96036f369360f/f58712e1-0f03-48de-9477-45fc64342dde/Mullins+Media+2024-79_websize.jpg"
             alt="Mullins Media Co. team — Lynchburg marketing and advertising agency"
@@ -388,8 +388,8 @@ export default async function HomePage() {
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
             {clientLogos.map(logo => (
-              <div key={logo.name} className="relative h-20 w-full">
-                <Image src={logo.url} alt={logo.name} fill className="object-contain" sizes="160px" />
+              <div key={logo.name} className="relative h-28 w-full">
+                <Image src={logo.url} alt={logo.name} fill className="object-contain" sizes="200px" />
               </div>
             ))}
           </div>
