@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://lynchburgmarketingcompany.com'
 
@@ -294,6 +295,31 @@ export default function SEOPage() {
             >
               Content Marketing
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Meet Your Specialist */}
+      <section className="py-20 px-6 bg-[#2C3539] text-white">
+        <div className="max-w-5xl mx-auto">
+          <p className="font-sans text-[#CBD4D7] text-sm uppercase tracking-widest mb-10 text-center">Meet Your Specialist</p>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="relative aspect-square w-full max-w-sm mx-auto overflow-hidden">
+              <Image
+                src="https://images.squarespace-cdn.com/content/v1/60f6d968e0d96036f369360f/a3fe5367-fd6b-48f6-8db1-217abf513504/Mullins+Media+Headshots+2025-16.jpg"
+                alt="Adam Mullins, Founder of Mullins Media Co."
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+            <div>
+              <h2 className="font-serif text-2xl md:text-3xl font-bold mb-2">Adam Mullins</h2>
+              <p className="font-sans text-[#CBD4D7] text-sm uppercase tracking-widest mb-6">Founder &amp; SEO Strategist</p>
+              <p className="font-sans text-[#CBD4D7] leading-relaxed">
+                Adam Mullins leads SEO strategy for Mullins Media Co. He has been building organic search campaigns in Lynchburg since 2013 and built this very site — LynchburgMarketingCompany.com — over a weekend as a live SEO experiment. It ranked on Google without a single paid ad.
+              </p>
+            </div>
           </div>
         </div>
       </section>

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://lynchburgmarketingcompany.com'
 
@@ -342,6 +343,17 @@ export default function ContentMarketingPage() {
             </Link>
           </div>
         </div>
+      </section>
+
+      {/* Behind the scenes photo */}
+      <section className="relative w-full aspect-video overflow-hidden">
+        <Image
+          src="https://images.squarespace-cdn.com/content/v1/60f6d968e0d96036f369360f/dfabac6d-d57a-4f13-ba2e-76a484b7043b/Mullins+Media+Co.+Branding+Images+-7.jpg"
+          alt="Mullins Media Co. team at work — content strategy session"
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+        />
       </section>
 
       {/* CTA */}

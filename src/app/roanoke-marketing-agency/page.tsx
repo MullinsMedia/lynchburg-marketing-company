@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://lynchburgmarketingcompany.com'
 
@@ -237,6 +238,31 @@ export default function RoanokeMarketingPage() {
                 <p className="font-sans text-[#CBD4D7] text-sm leading-relaxed">{item.label}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Local Team Member */}
+      <section className="bg-[#2C3539] py-20 px-6 text-white">
+        <div className="max-w-5xl mx-auto">
+          <p className="font-sans text-[#CBD4D7] text-sm uppercase tracking-widest mb-10 text-center">Your Local Contact</p>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="relative aspect-square w-full max-w-sm mx-auto overflow-hidden">
+              <Image
+                src="https://images.squarespace-cdn.com/content/v1/60f6d968e0d96036f369360f/f415a90a-31e1-4426-bb9c-97859e4c72fb/Mullins+Media+Headshots+2025-19.jpg"
+                alt="Isaac Gibson, Multimedia Specialist at Mullins Media Co."
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+            <div>
+              <h2 className="font-serif text-2xl md:text-3xl font-bold mb-2">Isaac Gibson</h2>
+              <p className="font-sans text-[#CBD4D7] text-sm uppercase tracking-widest mb-6">Multimedia Specialist</p>
+              <p className="font-sans text-[#CBD4D7] leading-relaxed">
+                Isaac Gibson has over 15 years of digital media experience and leads media production for our Roanoke-area clients. From brand photography to video campaigns, Isaac handles the creative execution.
+              </p>
+            </div>
           </div>
         </div>
       </section>
