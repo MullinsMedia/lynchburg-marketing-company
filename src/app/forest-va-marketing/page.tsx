@@ -8,7 +8,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'Marketing Company Forest VA | Mullins Media Co.',
     description:
-      'Looking for a marketing company in Forest, VA? Mullins Media Co. serves Bedford County businesses with SEO, Google Ads, social media, website design, and more. Call (434) 485-5739.',
+      'Looking for a marketing company in Forest, VA? Mullins Media Co. serves Bedford County businesses with SEO, Google Ads, social media, website design, and more. Call (434) 204-4226.',
     alternates: {
       canonical: `${siteUrl}/forest-va-marketing`,
     },
@@ -29,7 +29,7 @@ const jsonLd = {
   description:
     'Full-service marketing agency serving Forest, VA and Bedford County businesses. SEO, Google Ads, social media, website design, TV, radio, and billboard advertising.',
   url: siteUrl,
-  telephone: '+14344855739',
+  telephone: '+14342042042226',
   email: 'hello@mullinsmediaco.com',
   foundingDate: '2013',
   areaServed: [
@@ -70,10 +70,10 @@ export default function ForestVAMarketingPage() {
               Get a Free Consultation
             </Link>
             <a
-              href="tel:+14344855739"
+              href="tel:+14342042042226"
               className="border border-[#CBD4D7] text-white font-sans font-semibold text-sm uppercase tracking-widest px-10 py-4 hover:bg-white hover:text-[#2C3539] transition-colors"
             >
-              (434) 485-5739
+              (434) 204-4226
             </a>
           </div>
         </div>

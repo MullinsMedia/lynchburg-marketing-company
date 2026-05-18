@@ -8,7 +8,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'SEO Company in Lynchburg, VA | Local SEO Agency | Mullins Media Co.',
     description:
-      'Looking for a Lynchburg SEO agency? Mullins Media Co. helps local businesses rank on Google, drive organic traffic, and grow revenue. Starting at $750/mo. Call (434) 485-5739.',
+      'Looking for a Lynchburg SEO agency? Mullins Media Co. helps local businesses rank on Google, drive organic traffic, and grow revenue. Starting at $750/mo. Call (434) 204-4226.',
     alternates: {
       canonical: `${siteUrl}/services/seo`,
     },
@@ -29,7 +29,7 @@ const jsonLd = {
     '@type': 'LocalBusiness',
     name: 'Mullins Media Co. — Lynchburg Marketing Company',
     url: siteUrl,
-    telephone: '+14344855739',
+    telephone: '+14342042042226',
     email: 'hello@mullinsmediaco.com',
     address: {
       '@type': 'PostalAddress',
@@ -341,10 +341,10 @@ export default function SEOPage() {
               Get Your Free Audit
             </Link>
             <a
-              href="tel:+14344855739"
+              href="tel:+14342042042226"
               className="font-sans text-[#CBD4D7] text-sm font-semibold hover:text-white transition-colors"
             >
-              Or call (434) 485-5739
+              Or call (434) 204-4226
             </a>
           </div>
         </div>

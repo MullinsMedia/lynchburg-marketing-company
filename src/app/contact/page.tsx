@@ -6,18 +6,18 @@ const contactUrl = `${process.env.NEXT_PUBLIC_SITE_URL || 'https://lynchburgmark
 export const metadata: Metadata = {
   title: 'Contact | Free Marketing Consultation — Lynchburg, VA',
   description:
-    'Get a free marketing consultation with Mullins Media Co. in Lynchburg, VA. Call (434) 485-5739 or fill out the form. We help Lynchburg businesses with SEO, advertising, social media, and web design.',
+    'Get a free marketing consultation with Mullins Media Co. in Lynchburg, VA. Call (434) 204-4226 or fill out the form. We help Lynchburg businesses with SEO, advertising, social media, and web design.',
   alternates: { canonical: contactUrl },
   openGraph: {
     title: 'Contact | Free Marketing Consultation — Lynchburg, VA',
-    description: 'Get a free marketing consultation with Mullins Media Co. in Lynchburg, VA. Call (434) 485-5739 or fill out the form.',
+    description: 'Get a free marketing consultation with Mullins Media Co. in Lynchburg, VA. Call (434) 204-4226 or fill out the form.',
     url: contactUrl,
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Contact | Free Marketing Consultation — Lynchburg, VA',
-    description: 'Get a free marketing consultation with Mullins Media Co. in Lynchburg, VA. Call (434) 485-5739 or fill out the form.',
+    description: 'Get a free marketing consultation with Mullins Media Co. in Lynchburg, VA. Call (434) 204-4226 or fill out the form.',
   },
 }
 
@@ -110,11 +110,11 @@ export default function ContactPage() {
               <div className="flex items-start gap-4">
                 <span className="text-xs font-sans font-semibold uppercase tracking-widest text-[#61717A] w-16 flex-shrink-0 mt-0.5">Phone</span>
                 <a
-                  href="tel:4344855739"
+                  href="tel:4342042042226"
                   itemProp="telephone"
                   className="text-[#2C3539] font-sans font-medium hover:text-[#61717A] transition-colors"
                 >
-                  (434) 485-5739
+                  (434) 204-4226
                 </a>
               </div>
               <div className="flex items-start gap-4">

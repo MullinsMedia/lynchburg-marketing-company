@@ -29,7 +29,7 @@ const jsonLd = {
     '@type': 'LocalBusiness',
     name: 'Mullins Media Co. — Lynchburg Marketing Company',
     url: siteUrl,
-    telephone: '+14344855739',
+    telephone: '+14342042042226',
     email: 'hello@mullinsmediaco.com',
     address: {
       '@type': 'PostalAddress',
@@ -382,10 +382,10 @@ export default function SocialMediaPage() {
               Start the Conversation
             </Link>
             <a
-              href="tel:+14344855739"
+              href="tel:+14342042042226"
               className="font-sans text-[#CBD4D7] text-sm font-semibold hover:text-white transition-colors"
             >
-              Or call (434) 485-5739
+              Or call (434) 204-4226
             </a>
           </div>
         </div>

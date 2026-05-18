@@ -8,7 +8,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'Marketing Company Roanoke VA | Advertising Agency | Mullins Media Co.',
     description:
-      'Mullins Media Co. serves Roanoke, VA businesses with SEO, Google Ads, social media, website design, TV, and more. 15+ years in western Virginia. Call (434) 485-5739.',
+      'Mullins Media Co. serves Roanoke, VA businesses with SEO, Google Ads, social media, website design, TV, and more. 15+ years in western Virginia. Call (434) 204-4226.',
     alternates: {
       canonical: `${siteUrl}/roanoke-marketing-agency`,
     },
@@ -29,7 +29,7 @@ const jsonLd = {
   description:
     'Full-service marketing and advertising agency serving Roanoke, VA and the greater western Virginia region. SEO, Google Ads, social media, website design, TV, radio, and outdoor advertising.',
   url: siteUrl,
-  telephone: '+14344855739',
+  telephone: '+14342042042226',
   email: 'hello@mullinsmediaco.com',
   foundingDate: '2013',
   areaServed: [
@@ -71,10 +71,10 @@ export default function RoanokeMarketingPage() {
               Get a Free Consultation
             </Link>
             <a
-              href="tel:+14344855739"
+              href="tel:+14342042042226"
               className="border border-[#CBD4D7] text-white font-sans font-semibold text-sm uppercase tracking-widest px-10 py-4 hover:bg-white hover:text-[#2C3539] transition-colors"
             >
-              (434) 485-5739
+              (434) 204-4226
             </a>
           </div>
         </div>
