@@ -4,7 +4,7 @@ const LOGO_HORIZONTAL = 'https://images.squarespace-cdn.com/content/v1/60f6d968e
 
 export default function Footer() {
   const year = new Date().getFullYear()
-  const phone = process.env.NEXT_PUBLIC_PHONE || '(434) 485-5739'
+  const phone = process.env.NEXT_PUBLIC_PHONE || '(434) 204-4226'
 
   return (
     <footer className="bg-[#2C3539] text-[#CBD4D7] mt-20">

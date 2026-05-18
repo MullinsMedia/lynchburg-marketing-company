@@ -8,7 +8,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'Marketing Company Smith Mountain Lake VA | Mullins Media Co.',
     description:
-      'Marketing and advertising for Smith Mountain Lake businesses — vacation rentals, marinas, restaurants, real estate, and hospitality. Mullins Media Co. Call (434) 485-5739.',
+      'Marketing and advertising for Smith Mountain Lake businesses — vacation rentals, marinas, restaurants, real estate, and hospitality. Mullins Media Co. Call (434) 204-4226.',
     alternates: {
       canonical: `${siteUrl}/smith-mountain-lake-marketing`,
     },
@@ -29,7 +29,7 @@ const jsonLd = {
   description:
     'Full-service marketing agency serving Smith Mountain Lake businesses in Bedford and Franklin Counties. SEO, Google Ads, social media, website design, and hospitality marketing.',
   url: siteUrl,
-  telephone: '+14344855739',
+  telephone: '+14342042042226',
   email: 'hello@mullinsmediaco.com',
   foundingDate: '2013',
   areaServed: [
@@ -71,10 +71,10 @@ export default function SmithMountainLakeMarketingPage() {
               Get a Free Consultation
             </Link>
             <a
-              href="tel:+14344855739"
+              href="tel:+14342042042226"
               className="border border-[#CBD4D7] text-white font-sans font-semibold text-sm uppercase tracking-widest px-10 py-4 hover:bg-white hover:text-[#2C3539] transition-colors"
             >
-              (434) 485-5739
+              (434) 204-4226
             </a>
           </div>
         </div>

@@ -8,7 +8,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'Advertising Agency in Lynchburg, VA | Google Ads, TV, Radio | Mullins Media Co.',
     description:
-      'Full-funnel advertising for Lynchburg businesses. Google Ads, TV on WSET, radio on WLNI, and billboards — digital and traditional under one roof. Call (434) 485-5739.',
+      'Full-funnel advertising for Lynchburg businesses. Google Ads, TV on WSET, radio on WLNI, and billboards — digital and traditional under one roof. Call (434) 204-4226.',
     alternates: {
       canonical: `${siteUrl}/services/advertising`,
     },
@@ -29,7 +29,7 @@ const jsonLd = {
     '@type': 'LocalBusiness',
     name: 'Mullins Media Co. — Lynchburg Marketing Company',
     url: siteUrl,
-    telephone: '+14344855739',
+    telephone: '+14342042042226',
     email: 'hello@mullinsmediaco.com',
     address: {
       '@type': 'PostalAddress',
@@ -348,10 +348,10 @@ export default function AdvertisingPage() {
               Get a Free Advertising Plan
             </Link>
             <a
-              href="tel:+14344855739"
+              href="tel:+14342042042226"
               className="font-sans text-[#CBD4D7] text-sm font-semibold hover:text-white transition-colors"
             >
-              Or call (434) 485-5739
+              Or call (434) 204-4226
             </a>
           </div>
         </div>

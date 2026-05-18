@@ -8,7 +8,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'Website Design in Lynchburg, VA | Web Design Company | Mullins Media Co.',
     description:
-      'Professional website design for Lynchburg businesses. WordPress, Shopify, and custom sites starting at $3,000. Built with SEO, copy, and photography — done for you. Call (434) 485-5739.',
+      'Professional website design for Lynchburg businesses. WordPress, Shopify, and custom sites starting at $3,000. Built with SEO, copy, and photography — done for you. Call (434) 204-4226.',
     alternates: {
       canonical: `${siteUrl}/services/website-design`,
     },
@@ -29,7 +29,7 @@ const jsonLd = {
     '@type': 'LocalBusiness',
     name: 'Mullins Media Co. — Lynchburg Marketing Company',
     url: siteUrl,
-    telephone: '+14344855739',
+    telephone: '+14342042042226',
     email: 'hello@mullinsmediaco.com',
     address: {
       '@type': 'PostalAddress',
@@ -380,10 +380,10 @@ export default function WebsiteDesignPage() {
               Get a Free Website Consultation
             </Link>
             <a
-              href="tel:+14344855739"
+              href="tel:+14342042042226"
               className="font-sans text-[#CBD4D7] text-sm font-semibold hover:text-white transition-colors"
             >
-              Or call (434) 485-5739
+              Or call (434) 204-4226
             </a>
           </div>
         </div>

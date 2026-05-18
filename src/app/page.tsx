@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
 }
 
-const phone = process.env.NEXT_PUBLIC_PHONE || '(434) 485-5739'
+const phone = process.env.NEXT_PUBLIC_PHONE || '(434) 204-4226'
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -32,7 +32,7 @@ const jsonLd = {
   name: 'Lynchburg Marketing Company',
   description: 'Full-service marketing and advertising agency serving Lynchburg, Virginia — SEO, paid ads, social media, website design, content, and brand strategy.',
   url: 'https://lynchburgmarketingcompany.com',
-  telephone: '434-485-5739',
+  telephone: '434-204-4226',
   email: 'hello@mullinsmediaco.com',
   address: {
     '@type': 'PostalAddress',
